@@ -1,0 +1,20 @@
+nav{
+   justify-content: space-between;
+   display: flex;
+   background-color: grey;
+   padding: 10px;
+}
+
+*{
+    background-color: whitesmoke;
+    padding: 3px;
+}
+
+.nav{
+    background-color: orange;
+    text-decoration-style: none;
+}
+
+span{
+    text-decoration-style: none;
+}

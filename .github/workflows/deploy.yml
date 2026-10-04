@@ -41,10 +41,10 @@ jobs:
           REPO_NAME="${{ github.event.repository.name }}"
           OWNER="${{ github.repository_owner }}"
           
-          # If the repo name is <owner>.github.io, base-href is root ('/').
-          # Otherwise (e.g. 'Portfolio'), base-href is '/<repo_name>/'.
-          if [ "$REPO_NAME" = "$OWNER.github.io" ]; then
-            echo "Building for root user site ($OWNER.github.io)..."
+          # If using a custom domain (public/CNAME exists) or repo is <owner>.github.io, base-href is root ('/').
+          # Otherwise (e.g. 'Portfolio' on github.io), base-href is '/<repo_name>/'.
+          if [ -f "public/CNAME" ] || [ "$REPO_NAME" = "$OWNER.github.io" ]; then
+            echo "Building for root base path (custom domain or root user site)..."
             npx ng build --configuration production --base-href /
           else
             echo "Building for repository subpath (/$REPO_NAME/)..."

@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular Application
+        run: |
+          REPO_NAME="${{ github.event.repository.name }}"
+          OWNER="${{ github.repository_owner }}"
+          
+          # If the repo name is <owner>.github.io, base-href is root ('/').
+          # Otherwise (e.g. 'Portfolio'), base-href is '/<repo_name>/'.
+          if [ "$REPO_NAME" = "$OWNER.github.io" ]; then
+            echo "Building for root user site ($OWNER.github.io)..."
+            npx ng build --configuration production --base-href /
+          else
+            echo "Building for repository subpath (/$REPO_NAME/)..."
+            npx ng build --configuration production --base-href "/$REPO_NAME/"
+          fi
+          
+          # Copy index.html to 404.html to support client-side routing on GitHub Pages
+          cp dist/portfolio-angular/browser/index.html dist/portfolio-angular/browser/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/portfolio-angular/browser
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

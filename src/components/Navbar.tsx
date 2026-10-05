@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Terminal, Menu, X } from 'lucide-react';
 import { Github, Linkedin } from './ui/icons';
 
@@ -12,159 +12,249 @@ const NAV_LINKS = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('');
+  const navContainerRef = useRef<HTMLElement>(null);
 
+  // Reliable Scroll Spy
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 40);
 
+      // 1. If in hero/top of page, clear active link
+      if (scrollY < 200) {
+        setActiveSection('');
+        return;
+      }
+
+      // 2. If at bottom of page, activate last link (contact)
+      const isAtBottom =
+        window.innerHeight + Math.ceil(scrollY) >= document.documentElement.scrollHeight - 60;
+      if (isAtBottom) {
+        setActiveSection('contact');
+        return;
+      }
+
+      // 3. Find section that spans across the viewport check line (160px from top)
+      const checkLine = 160;
       const sections = NAV_LINKS.map((link) => link.href.replace('#', ''));
-      for (const section of [...sections].reverse()) {
+      let current = '';
+
+      for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 140) {
-            setActiveSection(section);
+          if (rect.top <= checkLine && rect.bottom > checkLine) {
+            current = section;
             break;
           }
         }
       }
+
+      if (current) {
+        setActiveSection(current);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Collapse mobile drawer when clicking outside or pressing Escape
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (navContainerRef.current && !navContainerRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileMenuOpen]);
+
+  // Auto-close mobile drawer on window resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const scrollToSection = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     const targetId = href.replace('#', '');
+    setActiveSection(targetId);
+    setIsMobileMenuOpen(false);
+
     const element = document.getElementById(targetId);
     if (element) {
       const navbarHeight = 80;
       const offsetPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
     }
   };
 
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setActiveSection('');
     setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-[#0D0D12]/85 backdrop-blur-md border-b border-[#2A2A35] py-3.5 shadow-xl shadow-black/40'
-          : 'bg-transparent py-5'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-        {/* Brand */}
-        <a
-          href="#home"
-          onClick={scrollToTop}
-          className="flex items-center gap-2.5 font-mono text-[#CDCCCA] hover:text-[#4F98A3] transition-colors group"
-        >
-          <div className="w-8 h-8 rounded-lg bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#4F98A3] group-hover:border-[#4F98A3] transition-colors">
-            <Terminal size={16} />
-          </div>
-          <span className="font-bold text-base tracking-tight text-white">aman.dev</span>
-        </a>
-
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
-          {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.href.replace('#', '');
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${isActive
-                    ? 'text-[#4F98A3] bg-[#1A1A24] border border-[#2A2A35]'
-                    : 'text-[#A1A1AA] hover:text-white hover:bg-[#1A1A24]/60'
-                  }`}
-              >
-                {link.name}
-              </a>
-            );
-          })}
-        </nav>
-
-        {/* Right Actions */}
-        <div className="hidden sm:flex items-center gap-2.5">
-          <a
-            href="https://github.com/89Aman"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#A1A1AA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
-            aria-label="GitHub"
-          >
-            <Github size={16} />
-          </a>
-          <a
-            href="https://linkedin.com/in/sharmaaman012"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#A1A1AA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={16} />
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => scrollToSection(e, '#contact')}
-            className="px-3.5 py-1.5 bg-[#4F98A3] text-[#0D0D12] text-xs font-semibold rounded-md hover:bg-[#6DBF8F] transition-all font-mono shadow-md shadow-[#4F98A3]/10"
-          >
-            Connect_
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#CDCCCA]"
-          aria-label="Toggle Menu"
-        >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
+    <>
+      {/* Mobile Drawer Backdrop: dims page and collapses menu on outside click */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#0D0D12]/95 backdrop-blur-xl border-b border-[#2A2A35] px-6 py-6 space-y-3">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className="block px-3 py-2 rounded-md text-base text-[#CDCCCA] hover:text-[#4F98A3] hover:bg-[#1A1A24]"
-            >
-              {link.name}
-            </a>
-          ))}
-          <div className="pt-4 border-t border-[#2A2A35] flex items-center gap-3">
+        <div
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden transition-opacity duration-200"
+          aria-hidden="true"
+        />
+      )}
+
+      <header
+        ref={navContainerRef}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#0D0D12]/85 backdrop-blur-md border-b border-[#2A2A35] py-3.5 shadow-xl shadow-black/40'
+            : 'bg-transparent py-5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+          {/* Brand */}
+          <a
+            href="#home"
+            onClick={scrollToTop}
+            className="flex items-center gap-2.5 font-mono text-[#CDCCCA] hover:text-[#4F98A3] transition-colors group"
+          >
+            <div className="w-8 h-8 rounded-lg bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#4F98A3] group-hover:border-[#4F98A3] transition-colors">
+              <Terminal size={16} />
+            </div>
+            <span className="font-bold text-base tracking-tight text-white">aman.dev</span>
+          </a>
+
+          {/* Desktop Nav Links */}
+          <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '');
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                    isActive
+                      ? 'text-[#4F98A3] bg-[#4F98A3]/10 border border-[#4F98A3]/30 font-semibold shadow-sm shadow-[#4F98A3]/10'
+                      : 'text-[#A1A1AA] hover:text-white hover:bg-[#1A1A24]/60 border border-transparent'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Right Actions */}
+          <div className="hidden sm:flex items-center gap-2.5">
             <a
               href="https://github.com/89Aman"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-[#1A1A24] border border-[#2A2A35] text-xs text-[#CDCCCA] flex items-center gap-2"
+              className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#A1A1AA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+              aria-label="GitHub"
             >
-              <Github size={14} /> GitHub
+              <Github size={16} />
             </a>
             <a
               href="https://linkedin.com/in/sharmaaman012"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-[#1A1A24] border border-[#2A2A35] text-xs text-[#CDCCCA] flex items-center gap-2"
+              className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#A1A1AA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+              aria-label="LinkedIn"
             >
-              <Linkedin size={14} /> LinkedIn
+              <Linkedin size={16} />
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => scrollToSection(e, '#contact')}
+              className="px-3.5 py-1.5 bg-[#4F98A3] text-[#0D0D12] text-xs font-semibold rounded-md hover:bg-[#6DBF8F] transition-all font-mono shadow-md shadow-[#4F98A3]/10"
+            >
+              Connect_
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#CDCCCA] hover:text-white hover:border-[#4F98A3] transition-all"
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Drawer */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-[#0D0D12]/95 backdrop-blur-xl border-b border-[#2A2A35] px-6 py-6 space-y-2 animate-fadeIn">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '');
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className={`block px-3.5 py-2.5 rounded-lg text-base font-medium transition-all ${
+                    isActive
+                      ? 'text-[#4F98A3] bg-[#4F98A3]/10 border border-[#4F98A3]/30 font-semibold'
+                      : 'text-[#CDCCCA] hover:text-[#4F98A3] hover:bg-[#1A1A24]'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
+            <div className="pt-4 border-t border-[#2A2A35] flex items-center gap-3">
+              <a
+                href="https://github.com/89Aman"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-xs text-[#CDCCCA] flex items-center gap-2 hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+              >
+                <Github size={14} /> GitHub
+              </a>
+              <a
+                href="https://linkedin.com/in/sharmaaman012"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-xs text-[#CDCCCA] flex items-center gap-2 hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+              >
+                <Linkedin size={14} /> LinkedIn
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   );
 }

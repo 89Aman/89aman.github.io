@@ -1,13 +1,6 @@
 import React from 'react';
-import { Terminal, Mail, ArrowUp, Calendar, Globe, Code2 } from 'lucide-react';
+import { Terminal, Mail, ArrowUp, Calendar } from 'lucide-react';
 import { Github, Linkedin } from './ui/icons';
-
-const NAV_LINKS = [
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Certifications', href: '#certifications' },
-  { name: 'Contact', href: '#contact' },
-];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,17 +10,6 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToSection = (e: React.MouseEvent, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const el = document.getElementById(targetId);
-    if (el) {
-      const navbarHeight = 80;
-      const offset = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    }
-  };
-
   return (
     <footer className="bg-[#09090D] border-t border-[#1F1F2C] relative z-10 overflow-hidden">
       {/* Top subtle gradient glow line */}
@@ -35,8 +17,8 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12 border-b border-[#1A1A24]">
-          {/* Brand & Mission (5 cols) */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Brand & Mission (7 cols) */}
+          <div className="md:col-span-7 space-y-4">
             <div className="flex items-center gap-3">
               <a
                 href="#home"
@@ -59,43 +41,13 @@ export function Footer() {
               </div>
             </div>
 
-            <p className="text-[#8E8D8A] text-sm leading-relaxed max-w-sm">
+            <p className="text-[#8E8D8A] text-sm leading-relaxed max-w-md">
               Engineering autonomous multi-agent architectures, production-grade RAG retrieval engines, and high-concurrency cloud backends.
             </p>
-
-            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono text-[#797876]">
-              <span className="px-2.5 py-1 rounded-md bg-[#13131A] border border-[#22222E]">
-                📍 Raipur, India
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-[#13131A] border border-[#22222E]">
-                🌐 UTC+5:30 (IST)
-              </span>
-            </div>
           </div>
 
-          {/* Navigation (3 cols) */}
-          <div className="md:col-span-3 space-y-4">
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider font-mono">
-              System Index
-            </h4>
-            <ul className="space-y-2.5">
-              {NAV_LINKS.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
-                    className="group inline-flex items-center gap-2 text-[#8E8D8A] hover:text-[#4F98A3] transition-colors text-sm"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#2A2A35] group-hover:bg-[#4F98A3] transition-colors"></span>
-                    <span>{link.name}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Connect & Channels (4 cols) */}
-          <div className="md:col-span-4 space-y-4">
+          {/* Connect & Channels (5 cols) */}
+          <div className="md:col-span-5 space-y-4">
             <h4 className="text-xs font-semibold text-white uppercase tracking-wider font-mono">
               Direct Channels
             </h4>
@@ -148,23 +100,6 @@ export function Footer() {
             <span>© {currentYear} Aman Sharma.</span>
             <span className="text-[#2A2A35]">·</span>
             <span>All rights reserved.</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 text-[#8E8D8A]">
-              <Code2 size={13} className="text-[#4F98A3]" />
-              <span>Python 3.12 · FastAPI · React</span>
-            </span>
-            <span className="text-[#2A2A35]">·</span>
-            <a
-              href="https://amanworks.runs-on.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[#4F98A3] hover:text-[#6DBF8F] transition-colors"
-            >
-              <Globe size={12} />
-              <span>amanworks.runs-on.dev</span>
-            </a>
           </div>
         </div>
       </div>

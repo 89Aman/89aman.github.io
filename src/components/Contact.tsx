@@ -204,15 +204,6 @@ export function Contact() {
                   }}
                 />
 
-                {/* Status Availability Badge */}
-                <div className="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D0D12]/90 border border-[#2A2A35] text-xs font-mono mb-6 text-[#A1A1AA] shadow-inner">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
-                  </span>
-                  <span className="text-[#CDCCCA] font-medium">Available for Tech Syncs &amp; Deep-Dives</span>
-                </div>
-
                 {/* Meeting Icon */}
                 <div className="relative flex justify-center mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#4F98A3] to-[#6DBF8F] flex items-center justify-center shadow-xl shadow-[#4F98A3]/30 ring-4 ring-[#4F98A3]/10">

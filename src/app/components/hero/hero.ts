@@ -183,7 +183,7 @@ export class HeroComponent implements OnInit, OnDestroy {
       ];
     } else if (lower === 'roast') {
       outputLines = [
-        '🔥 Roast Response: "Digital ghost town? Tired of centering divs?"',
+        ' Roast Response: "Digital ghost town? Tired of centering divs?"',
         '› Div centering: Validated with sub-pixel precision across all screens.',
         '› Context engine: Operating at 100% token headroom.',
         '› Multi-agent swarm: 4 nodes actively orchestrating.',

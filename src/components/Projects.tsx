@@ -83,19 +83,6 @@ const PROJECTS: Project[] = [
     category: ['AI / Multi-Agent', 'RAG & Search', 'Cloud & Infra', 'Full-Stack'],
   },
   {
-    title: 'Smart Resource Allocation',
-    description: 'Offline-capable coordination platform powered by Vertex AI and secured by identity verification for field operations.',
-    fullDescription: [
-      'Humanitarian logistics platform connecting field coordinators, volunteers, and admins in real-time',
-      'Vertex AI routing and priority heuristics for resource dispatching under low-connectivity constraints',
-      'Offline data synchronization with local storage cache',
-    ],
-    tech: ['FastAPI', 'Vertex AI', 'Offline Sync', 'Cloud Run', 'Python'],
-    github: 'https://github.com/89Aman/Smart-Resource-Allocation',
-    featured: true,
-    category: ['AI / Multi-Agent', 'Cloud & Infra'],
-  },
-  {
     title: 'CampusFix',
     description: 'Smart campus facility management platform built for GDG Solution Challenge. 500+ QPS FastAPI backend + Flutter.',
     fullDescription: [
@@ -106,35 +93,8 @@ const PROJECTS: Project[] = [
     ],
     tech: ['FastAPI', 'Flutter', 'Supabase PostgreSQL', 'GCP Cloud Run', 'Docker', 'JWT'],
     github: 'https://github.com/89Aman/CampusFix',
-    featured: false,
+    featured: true,
     category: ['Full-Stack', 'Cloud & Infra', 'Hackathon'],
-  },
-  {
-    title: 'SkillSnap',
-    description: 'AI-powered skill assessment platform with live sandboxed code execution. Built in 24 hours for The Forge Hackathon.',
-    fullDescription: [
-      'Modern frontend + FastAPI backend architecture with async worker queue',
-      'Gemini API for intelligent skill gap analysis and automated rubric grading',
-      'Piston API integration for sandboxed code execution across 10+ languages',
-      'Cloud SQL for persistent telemetry and candidate test records',
-    ],
-    tech: ['React', 'FastAPI', 'Gemini API', 'Piston API', 'Cloud SQL', 'Python'],
-    github: 'https://github.com/89Aman/SkillSnap',
-    featured: false,
-    category: ['AI / Multi-Agent', 'Hackathon', 'Full-Stack'],
-  },
-  {
-    title: 'Text Classification Model',
-    description: 'SVM-based classifier predicting IAB content categories with TF-IDF vectorization and joblib serialization pipeline.',
-    fullDescription: [
-      'Support Vector Machine classifier trained on IAB content taxonomy standards',
-      'Feature engineering with TF-IDF vectorizer and n-gram analysis',
-      'Model serialization with joblib for zero-downtime API serving',
-    ],
-    tech: ['Python', 'scikit-learn', 'pandas', 'joblib', 'SVM', 'TF-IDF'],
-    github: 'https://github.com/89Aman/text-classification-model',
-    featured: false,
-    category: ['AI / Multi-Agent'],
   },
 ];
 

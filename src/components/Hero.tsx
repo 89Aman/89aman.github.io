@@ -144,7 +144,7 @@ export function Hero() {
       ];
     } else if (lower === 'roast') {
       output = [
-        '🔥 Roast Response: "Digital ghost town? Tired of centering divs?"',
+        '> Roast Response: "Digital ghost town? Tired of centering divs?"',
         '› Div centering: Sub-pixel precision validated across all viewports.',
         '› Context engine: Operating at 100% token headroom.',
         '› Multi-agent swarm: 4 nodes actively orchestrating.',
@@ -155,12 +155,13 @@ export function Hero() {
     } else if (lower === 'projects') {
       output = [
         'Top Featured Projects:',
-        '1. Parivesh 3.0       GovTech EC workflow engine (FastAPI + Supabase)',
-        '2. Knowledge Vault    Production RAG engine (<200ms latency, GCP)',
-        '3. CampusFix          GDG Solution Challenge (500+ QPS, Flutter + FastAPI)',
-        '4. RAG-DEMO           FDA Drug label assistant (Gemini 2.5 Flash)',
-        '5. SkillSnap          The Forge 24h Hackathon code assessment platform',
-        'Type "help" or click "View Projects" below to explore details.',
+        '1. AgentTrustLedger   Verifiable escrow & reputation protocol for agents',
+        '2. ContextLens        Developer context engine & searchable intent graph',
+        '3. TalentLens         LLM comparative candidate reasoning & vector search',
+        '4. Parivesh 3.0       GovTech EC workflow engine (FastAPI + Supabase)',
+        '5. Knowledge Vault    Production RAG engine (<200ms latency, GCP Cloud Run)',
+        '6. CampusFix          Smart facility platform (500+ QPS, GDG Challenge)',
+        'Type "help" or click "View Projects" to explore details.',
       ];
     } else {
       isError = true;
@@ -206,10 +207,10 @@ export function Hero() {
         }}
       />
 
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Hero Copy */}
-          <div className="lg:col-span-6 space-y-6">
+      <div className="w-full max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col items-center">
+          {/* Top: Hero Copy */}
+          <div className="w-full max-w-4xl space-y-6 text-center md:text-left mb-12 md:mb-16">
             {/* Tag Badge */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#1A1A24]/90 border border-[#2A2A35] text-[#4F98A3] text-xs font-mono backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-[#6DBF8F] animate-pulse"></span>
@@ -218,12 +219,11 @@ export function Hero() {
 
             {/* Main Name Heading */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-none font-display">
-              Aman<br />
-              <span className="text-[#4F98A3]">Sharma</span>
+              Aman <span className="text-[#4F98A3]">Sharma</span>
             </h1>
 
             {/* Typewriter Role */}
-            <div className="h-10 flex items-center">
+            <div className="h-10 flex items-center justify-center md:justify-start">
               <span className="text-lg md:text-2xl text-[#CDCCCA] font-medium font-mono">
                 › {displayRole}
                 <span className="animate-pulse text-[#4F98A3] font-bold">_</span>
@@ -231,13 +231,13 @@ export function Hero() {
             </div>
 
             {/* Bio One-Liner */}
-            <p className="text-base md:text-lg text-[#A1A1AA] max-w-xl leading-relaxed">
+            <p className="text-base md:text-lg text-[#A1A1AA] max-w-2xl leading-relaxed mx-auto md:mx-0">
               Architecting autonomous multi-agent systems, engineering production-grade RAG pipelines,
               and building resilient backends with Python, FastAPI, and uv — deployed on GCP Cloud Run and AWS.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* CTA Buttons & Social Proof */}
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
               <a
                 href="#projects"
                 onClick={(e) => scrollToSection(e, 'projects')}
@@ -256,44 +256,42 @@ export function Hero() {
                 <Download size={16} />
                 <span>Resume / Bio</span>
               </a>
-            </div>
 
-            {/* Social Proof */}
-            <div className="flex items-center gap-3 pt-3">
-              <a
-                href="https://github.com/89Aman"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
-                aria-label="GitHub"
-              >
-                <Github size={18} />
-              </a>
-              <a
-                href="https://linkedin.com/in/sharmaaman26"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="mailto:shasarita23@gmail.com"
-                className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
-                aria-label="Email"
-              >
-                <Mail size={18} />
-              </a>
-              <span className="text-xs font-mono text-[#797876] ml-2">AI Systems &amp; Backend Engineer</span>
+              <div className="flex items-center gap-2.5 ml-0 md:ml-4">
+                <a
+                  href="https://github.com/89Aman"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+                  aria-label="GitHub"
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://linkedin.com/in/sharmaaman26"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="mailto:shasarita23@gmail.com"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+                  aria-label="Email"
+                >
+                  <Mail size={18} />
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Terminal */}
-          <div className="lg:col-span-6">
-            <div className="rounded-xl bg-[#13131A]/95 border border-[#2A2A35] shadow-2xl overflow-hidden backdrop-blur-md">
+          {/* Interactive Terminal (Below Hero Copy, full width & spacious) */}
+          <div className="w-full max-w-5xl">
+            <div className="rounded-2xl bg-[#13131A]/95 border border-[#2A2A35] shadow-2xl overflow-hidden backdrop-blur-md">
               {/* Terminal Header */}
-              <div className="px-4 py-3 bg-[#1A1A24] border-b border-[#2A2A35] flex items-center justify-between">
+              <div className="px-5 py-3.5 bg-[#1A1A24] border-b border-[#2A2A35] flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-[#EF4444]/80"></span>
                   <span className="w-3 h-3 rounded-full bg-[#F59E0B]/80"></span>
@@ -314,14 +312,14 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Quick Command Chips */}
-              <div className="px-4 py-2 bg-[#0D0D12] border-b border-[#2A2A35] flex items-center gap-1.5 overflow-x-auto text-xs font-mono scrollbar-none no-scrollbar">
-                <span className="text-[#797876] shrink-0">Quick run:</span>
+              {/* Quick Command Chips (Full width & clear) */}
+              <div className="px-5 py-3 bg-[#0D0D12] border-b border-[#2A2A35] flex flex-wrap items-center gap-2 text-xs font-mono scrollbar-none no-scrollbar">
+                <span className="text-[#797876] shrink-0 mr-1 font-semibold">Quick run:</span>
                 {QUICK_COMMANDS.map((cmd) => (
                   <button
                     key={cmd}
                     onClick={() => handleCommand(cmd)}
-                    className="px-2.5 py-1 rounded bg-[#1A1A24] text-[#4F98A3] hover:bg-[#4F98A3] hover:text-[#0D0D12] transition-colors shrink-0 border border-[#2A2A35]"
+                    className="px-3 py-1.5 rounded-lg bg-[#1A1A24] text-[#4F98A3] hover:bg-[#4F98A3] hover:text-[#0D0D12] transition-colors border border-[#2A2A35] shrink-0 font-mono shadow-sm"
                   >
                     {cmd}
                   </button>
@@ -329,7 +327,7 @@ export function Hero() {
               </div>
 
               {/* Terminal Log Area */}
-              <div ref={terminalBodyRef} className="p-4 font-mono text-xs max-h-80 overflow-y-auto space-y-3 bg-[#0D0D12]/60 scroll-smooth scrollbar-none no-scrollbar">
+              <div ref={terminalBodyRef} className="p-5 font-mono text-xs md:text-sm max-h-80 overflow-y-auto space-y-3 bg-[#0D0D12]/60 scroll-smooth scrollbar-none no-scrollbar">
                 {terminalHistory.map((item, idx) => (
                   <div key={idx} className="space-y-1">
                     <div className="flex items-center gap-2 text-[#797876]">
@@ -362,7 +360,7 @@ export function Hero() {
                   e.preventDefault();
                   handleCommand(terminalInput);
                 }}
-                className="px-4 py-3 bg-[#13131A] border-t border-[#2A2A35] flex items-center gap-2"
+                className="px-5 py-3.5 bg-[#13131A] border-t border-[#2A2A35] flex items-center gap-3"
               >
                 <span className="text-[#6DBF8F] font-mono text-xs">$</span>
                 <input
@@ -377,7 +375,7 @@ export function Hero() {
                   className="text-[#797876] hover:text-[#4F98A3] transition-colors"
                   aria-label="Send command"
                 >
-                  <Send size={14} />
+                  <Send size={15} />
                 </button>
               </form>
             </div>

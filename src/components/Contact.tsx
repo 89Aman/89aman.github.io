@@ -175,27 +175,29 @@ export function Contact() {
           </div>
         </div>
 
-        {/* ULTRA-PREMIUM Book a Meeting Card */}
+        {/* ULTRA-PREMIUM Book a Meeting Card with Apple Liquid Glass Effect */}
         <div className="text-center">
           <div className="relative inline-block w-full max-w-3xl mx-auto">
-            {/* Liquid Glass Dynamic Glow & Refractive Ambient Fluid */}
-            <div className="absolute -inset-2 rounded-[2rem] liquid-glass-glow opacity-60"></div>
-            <div className="absolute -inset-1 rounded-[1.8rem] liquid-glass-refraction opacity-50"></div>
+            {/* Apple Liquid Glass: Deep Fluid Caustic Backlight & Dispersion */}
+            <div className="absolute -inset-3 rounded-[3rem] bg-gradient-to-tr from-[#4F98A3]/30 via-[#38BDF8]/20 to-[#6DBF8F]/30 blur-3xl opacity-60 animate-pulse pointer-events-none"></div>
+            <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-[#4F98A3] via-[#6DBF8F] to-[#38BDF8] rounded-3xl opacity-40 blur-2xl animate-pulse pointer-events-none"></div>
 
-            {/* Premium Liquid Glass Card Surface */}
-            <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-white/20 via-[#4F98A3]/40 to-[#1A1A24]/60 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
-              <div className="relative p-8 sm:p-12 md:p-14 rounded-3xl bg-[#13131A]/75 backdrop-blur-2xl backdrop-saturate-150 overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.22),inset_0_-1px_1px_rgba(0,0,0,0.5)]">
-                {/* Liquid Glass Sweeping Light Sheen */}
-                <div className="liquid-glass-sheen"></div>
+            {/* Apple Liquid Glass: Polished Specular Crystal Bevel & Border Frame */}
+            <div className="relative rounded-[2rem] p-[1px] bg-gradient-to-b from-white/35 via-[#4F98A3]/30 to-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.8),0_0_40px_rgba(79,152,163,0.25)]">
+              {/* Liquid Glass Body: High Refraction + Saturation + Frosted Depth */}
+              <div className="relative p-8 sm:p-12 md:p-14 rounded-[2rem] bg-gradient-to-b from-[#161622]/80 via-[#111118]/75 to-[#0B0B10]/85 backdrop-blur-3xl backdrop-saturate-[190%] overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),inset_0_-1px_1px_rgba(0,0,0,0.6)]">
+                
+                {/* Specular Diagonal Sheen (Apple VisionOS Glass Refraction) */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/[0.12] via-transparent to-transparent opacity-80" />
+                
+                {/* Razor-sharp Specular Meniscus Light Ribbon */}
+                <div className="absolute top-0 inset-x-12 h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none" />
 
-                {/* Top specular liquid arc */}
-                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/[0.08] via-white/[0.02] to-transparent pointer-events-none rounded-t-3xl" />
-
-                {/* Radial ambient lighting inside card */}
+                {/* Radial ambient liquid light pool inside card */}
                 <div
-                  className="absolute inset-0 pointer-events-none opacity-40"
+                  className="absolute inset-0 pointer-events-none opacity-50"
                   style={{
-                    backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(79, 152, 163, 0.35) 0%, transparent 70%)',
+                    backgroundImage: 'radial-gradient(ellipse at 50% -10%, rgba(79, 152, 163, 0.45) 0%, rgba(109, 191, 143, 0.15) 50%, transparent 75%)',
                   }}
                 />
 

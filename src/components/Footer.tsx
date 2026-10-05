@@ -5,7 +5,6 @@ import { Github, Linkedin } from './ui/icons';
 const NAV_LINKS = [
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Journey', href: '#journey' },
   { name: 'Certifications', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];

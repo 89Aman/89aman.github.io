@@ -43,8 +43,8 @@ export class ContactComponent {
     {
       icon: Globe,
       label: 'Website',
-      value: 'amanmlworks.xyz',
-      href: 'https://www.amanmlworks.xyz',
+      value: 'amanworks.runs-on.dev',
+      href: 'https://amanworks.runs-on.dev',
       color: '#6DBF8F',
     },
   ];

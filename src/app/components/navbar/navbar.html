@@ -1,69 +1,96 @@
 <nav
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
   [class.glass]="isScrolled()"
-  [class.bg-transparent]="!isScrolled()"
+  [class.bg-[#0D0D12]/80]="isScrolled()"
+  [class.backdrop-blur-md]="isScrolled()"
   [class.border-b]="isScrolled()"
-  [class.border-[#2A2A35]]="isScrolled()">
+  [class.border-[#2A2A35]]="isScrolled()"
+  [class.bg-transparent]="!isScrolled()">
 
   <div class="w-full max-w-7xl mx-auto px-6 lg:px-12">
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
-      <a href="#home" (click)="scrollToSection($event, '#home')"
-        class="text-xl font-mono text-[#4F98A3] relative group">
-        <span class="flex items-center gap-2">
-          <lucide-icon [name]="Terminal" [size]="20"></lucide-icon>
-          <span>aman.dev</span>
+      <a href="#home" (click)="scrollToTop($event)"
+        class="text-lg font-mono text-[#4F98A3] relative group flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#4F98A3] group-hover:border-[#4F98A3] transition-colors">
+          <lucide-icon [name]="Terminal" [size]="16"></lucide-icon>
         </span>
+        <span class="font-bold tracking-tight text-white group-hover:text-[#4F98A3] transition-colors">aman.dev</span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center gap-2">
+      <!-- Desktop Navigation Links -->
+      <ul class="hidden lg:flex items-center gap-1 bg-[#13131A]/60 p-1.5 rounded-full border border-[#2A2A35]/60 backdrop-blur-sm">
         @for (link of navLinks; track link.name) {
           <li>
             <a [href]="link.href" (click)="scrollToSection($event, link.href)"
-              class="px-4 py-2 text-sm font-medium transition-colors"
-              [class.text-white]="activeSection() === link.href.replace('#', '')"
-              [class.text-[#797876]]="activeSection() !== link.href.replace('#', '')"
-              [class.hover.text-white]="activeSection() !== link.href.replace('#', '')">
+              class="px-3.5 py-1.5 rounded-full text-xs font-medium transition-all"
+              [class.bg-[#4F98A3]]="activeSection() === link.href.replace('#', '')"
+              [class.text-[#0D0D12]]="activeSection() === link.href.replace('#', '')"
+              [class.font-semibold]="activeSection() === link.href.replace('#', '')"
+              [class.text-[#A1A1AA]]="activeSection() !== link.href.replace('#', '')"
+              [class.hover:text-white]="activeSection() !== link.href.replace('#', '')">
               {{ link.name }}
             </a>
           </li>
         }
       </ul>
 
+      <!-- Right CTAs -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://github.com/89Aman" target="_blank" rel="noopener noreferrer"
+          class="w-9 h-9 rounded-lg bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-colors"
+          aria-label="GitHub profile">
+          <lucide-icon [name]="Github" [size]="16"></lucide-icon>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sharmaaman012/" target="_blank" rel="noopener noreferrer"
+          class="w-9 h-9 rounded-lg bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-colors"
+          aria-label="LinkedIn profile">
+          <lucide-icon [name]="Linkedin" [size]="16"></lucide-icon>
+        </a>
+
+        <a href="#contact" (click)="scrollToSection($event, '#contact')"
+          class="px-4 py-2 bg-[#4F98A3] text-[#0D0D12] text-xs font-semibold rounded-lg hover:bg-[#6DBF8F] transition-all shadow-sm">
+          Let's Talk &rarr;
+        </a>
+      </div>
+
       <!-- Mobile Menu Button -->
-      <button class="md:hidden text-white p-2" (click)="toggleMobileMenu()" aria-label="Toggle menu">
-        <lucide-icon [name]="isMobileMenuOpen() ? X : Menu" [size]="24"></lucide-icon>
+      <button class="lg:hidden text-white p-2 rounded-md hover:bg-[#1A1A24] transition-colors"
+        (click)="toggleMobileMenu()" aria-label="Toggle menu">
+        <lucide-icon [name]="isMobileMenuOpen() ? X : Menu" [size]="22"></lucide-icon>
       </button>
     </div>
 
-    <!-- Mobile Navigation -->
+    <!-- Mobile Drawer Navigation -->
     @if (isMobileMenuOpen()) {
-      <div class="md:hidden py-4 border-t border-[#2A2A35]">
-        <ul class="flex flex-col gap-2">
+      <div class="lg:hidden py-4 border-t border-[#2A2A35] bg-[#0D0D12]/95 backdrop-blur-xl">
+        <ul class="flex flex-col gap-1">
           @for (link of navLinks; track link.name) {
             <li>
               <a [href]="link.href" (click)="scrollToSection($event, link.href)"
-                class="block px-4 py-3 text-sm font-medium rounded-md transition-colors"
-                [class.bg-[#1A1A24].text-white]="activeSection() === link.href.replace('#', '')"
-                [class.text-[#797876].hover.text-white]="activeSection() !== link.href.replace('#', '')">
+                class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors"
+                [class.bg-[#4F98A3]]="activeSection() === link.href.replace('#', '')"
+                [class.text-[#0D0D12]]="activeSection() === link.href.replace('#', '')"
+                [class.font-semibold]="activeSection() === link.href.replace('#', '')"
+                [class.text-[#A1A1AA]]="activeSection() !== link.href.replace('#', '')">
                 {{ link.name }}
               </a>
             </li>
           }
-          <li class="pt-2 px-4 flex gap-2">
-            <a href="https://github.com/89Aman" target="_blank"
-              class="p-2 text-[#797876] hover:text-white transition-colors">
-              <lucide-icon [name]="Github" [size]="20"></lucide-icon>
-            </a>
-            <a href="https://linkedin.com/in/sharmaaman26" target="_blank"
-              class="p-2 text-[#797876] hover:text-white transition-colors">
-              <lucide-icon [name]="Linkedin" [size]="20"></lucide-icon>
-            </a>
-          </li>
-          <li class="pt-2 px-4">
+          <li class="pt-3 px-4 flex items-center justify-between border-t border-[#2A2A35] mt-2">
+            <div class="flex gap-2">
+              <a href="https://github.com/89Aman" target="_blank"
+                class="p-2 text-[#797876] hover:text-white transition-colors" aria-label="GitHub">
+                <lucide-icon [name]="Github" [size]="20"></lucide-icon>
+              </a>
+              <a href="https://www.linkedin.com/in/sharmaaman012/" target="_blank"
+                class="p-2 text-[#797876] hover:text-white transition-colors" aria-label="LinkedIn">
+                <lucide-icon [name]="Linkedin" [size]="20"></lucide-icon>
+              </a>
+            </div>
             <a href="mailto:shasarita23@gmail.com"
-              class="inline-block w-full text-center px-4 py-2 bg-[#4F98A3] text-[#0D0D12] rounded-md text-sm font-semibold">
+              class="px-4 py-2 bg-[#4F98A3] text-[#0D0D12] rounded-md text-xs font-semibold">
               Let's Talk
             </a>
           </li>

@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, Menu, X, Terminal, Github, Linkedin } from 'lucide-angular';
+import { LucideAngularModule, Menu, X, Terminal, Github, Linkedin, Sparkles } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -19,11 +19,15 @@ export class NavbarComponent implements OnInit {
   readonly Terminal = Terminal;
   readonly Github = Github;
   readonly Linkedin = Linkedin;
+  readonly Sparkles = Sparkles;
 
   navLinks = [
     { name: 'About', href: '#about' },
+    { name: 'Research', href: '#research' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
+    { name: 'Tech Stack', href: '#skills' },
+    { name: 'Journey', href: '#journey' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -38,16 +42,16 @@ export class NavbarComponent implements OnInit {
   }
 
   private checkScroll() {
-    this.isScrolled.set(window.scrollY > 50);
+    this.isScrolled.set(window.scrollY > 40);
   }
 
   private detectActiveSection() {
-    const sections = this.navLinks.map(link => link.href.replace('#', ''));
+    const sections = this.navLinks.map((link) => link.href.replace('#', ''));
     for (const section of [...sections].reverse()) {
       const element = document.getElementById(section);
       if (element) {
         const rect = element.getBoundingClientRect();
-        if (rect.top <= 100) {
+        if (rect.top <= 120) {
           this.activeSection.set(section);
           break;
         }
@@ -56,7 +60,7 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleMobileMenu() {
-    this.isMobileMenuOpen.update(v => !v);
+    this.isMobileMenuOpen.update((v) => !v);
   }
 
   scrollToSection(event: Event, href: string) {
@@ -69,5 +73,11 @@ export class NavbarComponent implements OnInit {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       this.isMobileMenuOpen.set(false);
     }
+  }
+
+  scrollToTop(event: Event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.isMobileMenuOpen.set(false);
   }
 }

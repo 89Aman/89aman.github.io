@@ -1,54 +1,74 @@
-<section id="about" class="py-24 bg-[#13131A] relative">
+<section id="about" class="py-24 bg-[#13131A] relative border-t border-[#1F1F2C]">
   <div class="w-full max-w-7xl mx-auto px-6 lg:px-12">
     <!-- Section Header -->
     <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1A24] border border-[#2A2A35] text-[#4F98A3] text-xs font-mono mb-4">
+        <span>Engineering Philosophy</span>
+      </div>
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">About Me</h2>
+      <p class="text-[#797876] max-w-2xl mx-auto text-base">
+        Building intelligent, production-ready AI infrastructure and high-throughput backends.
+      </p>
     </div>
 
-    <!-- Main Content -->
-    <div class="grid lg:grid-cols-5 gap-12 items-start">
-      <!-- Left: Profile Photo -->
-      <div class="lg:col-span-2 flex justify-center">
+    <!-- Main Content Grid -->
+    <div class="grid lg:grid-cols-12 gap-12 items-start mb-16">
+      <!-- Left: Profile Photo & Lab Badge (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col items-center">
         <div class="relative group">
-          <div class="absolute inset-0 bg-[#4F98A3] rounded-lg opacity-20 group-hover:opacity-40 transition-opacity blur-lg"></div>
-          <img
-            src="https://avatars.githubusercontent.com/u/94701256?v=4"
-            alt="Aman Sharma"
-            class="relative w-64 h-64 rounded-lg border border-[#2A2A35] object-cover"
-            loading="eager">
+          <div class="absolute -inset-1 bg-gradient-to-r from-[#4F98A3] to-[#6DBF8F] rounded-2xl opacity-25 group-hover:opacity-60 transition duration-500 blur-lg"></div>
+          <div class="relative p-2 bg-[#1A1A24] rounded-2xl border border-[#2A2A35]">
+            <img
+              src="https://avatars.githubusercontent.com/u/94701256?v=4"
+              alt="Aman Sharma"
+              class="w-64 h-64 md:w-72 md:h-72 rounded-xl object-cover"
+              loading="eager" />
+            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-[#0D0D12]/90 backdrop-blur border border-[#2A2A35] flex items-center justify-between">
+              <div>
+                <span class="block text-xs font-bold text-white font-mono">Aman Sharma</span>
+                <span class="text-[11px] text-[#4F98A3] font-mono">Disha College · Noventra Labs</span>
+              </div>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#6DBF8F] animate-pulse"></span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Right: Bio -->
-      <div class="lg:col-span-3 space-y-6">
-        <p class="text-[#CDCCCA] leading-relaxed">
-          Hi, I'm Aman — a Python Developer and Cloud Engineer from Raipur, Chhattisgarh.
-          I'm currently pursuing a Bachelor's in Computer Applications at Disha College (2024–2027)
-          and building real-world AI systems in parallel. My work focuses on RAG architectures,
-          semantic search, and full-stack backends using FastAPI, deployed on Google Cloud Platform and AWS.
-        </p>
-        <p class="text-[#CDCCCA] leading-relaxed">
-          I co-founded <strong class="text-[#4F98A3]">Noventra Labs</strong> and regularly compete in hackathons —
-          including Parivesh 3.0 at IIIT Naya Raipur's e-summit and The Forge hackathon. I'm certified in
-          AWS Generative AI, MongoDB, Postman, and ML fundamentals, and I'm always working toward the next
-          meaningful project.
-        </p>
+      <!-- Right: Bio & Story (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="space-y-4 text-[#CDCCCA] leading-relaxed text-base">
+          <p>
+            Hi, I'm <strong class="text-white">Aman</strong> — an AI Systems and Backend Engineer based in Raipur, Chhattisgarh.
+            Currently pursuing my Bachelor's in Computer Applications at Disha College (2024–2027), I focus on the intersection of
+            <strong class="text-[#4F98A3]">autonomous multi-agent architectures</strong>, <strong class="text-[#4F98A3]">prefix-caching latency optimization</strong>,
+            and high-concurrency backends using FastAPI, Go, and uv.
+          </p>
+          <p>
+            I co-founded <strong class="text-white">Noventra Labs</strong> to build autonomous agentic workflows and production-grade RAG systems.
+            I regularly compete in hackathons — including building the <strong class="text-[#6DBF8F]">Parivesh 3.0</strong> environmental clearance engine at IIIT Naya Raipur's e-summit,
+            the <strong class="text-[#6DBF8F]">CampusFix</strong> 500+ QPS platform for GDG Solution Challenge, and <strong class="text-[#6DBF8F]">SkillSnap</strong> for The Forge Hackathon.
+          </p>
+          <p class="text-sm text-[#797876]">
+            Certified in AWS Generative AI, MongoDB Python Developer Path, Postman Student Expert, and Machine Learning Fundamentals.
+            I believe software should be fast, deterministic, and built to solve real-world problems.
+          </p>
+        </div>
 
-        <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+        <!-- 4 Stats Cards in Row -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
           @for (stat of stats; track stat.label) {
-            <div class="p-4 rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-center">
-              <lucide-icon [name]="stat.icon" [size]="20" class="mx-auto mb-2 text-[#4F98A3]"></lucide-icon>
-              <span class="block text-2xl font-bold text-white">{{ stat.value }}</span>
-              <span class="text-xs text-[#797876]">{{ stat.label }}</span>
+            <div class="p-4 rounded-xl bg-[#1A1A24] border border-[#2A2A35] text-center hover:border-[#4F98A3] transition-colors">
+              <lucide-icon [name]="stat.icon" [size]="18" class="mx-auto mb-1.5 text-[#4F98A3]"></lucide-icon>
+              <span class="block text-2xl font-bold text-white font-mono">{{ stat.value }}</span>
+              <span class="text-[11px] text-[#797876] block leading-tight">{{ stat.label }}</span>
             </div>
           }
         </div>
 
-        <!-- Values -->
-        <div class="flex flex-wrap gap-2 pt-4">
+        <!-- Values Pill Badges -->
+        <div class="flex flex-wrap gap-2 pt-2">
           @for (value of values; track value) {
-            <span class="px-3 py-1.5 rounded-md bg-[#1A1A24] border border-[#2A2A35] text-[#797876] text-sm font-mono hover:text-[#4F98A3] hover:border-[#4F98A3] transition-colors cursor-default">
+            <span class="px-3 py-1 rounded-md bg-[#1A1A24] border border-[#2A2A35] text-[#A1A1AA] text-xs font-mono hover:text-[#4F98A3] hover:border-[#4F98A3] transition-colors">
               {{ value }}
             </span>
           }
@@ -56,47 +76,17 @@
       </div>
     </div>
 
-    <!-- Skills Section -->
-    <div class="mt-24">
-      <h3 class="text-2xl font-bold text-white mb-8 text-center">Tech Stack</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @for (cat of skillCategories; track cat.name) {
-          <div class="p-6 rounded-lg bg-[#1A1A24] border border-[#2A2A35] hover:border-[#4F98A3] transition-colors">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-md flex items-center justify-center" [style.background]="cat.color + '20'">
-                <lucide-icon [name]="cat.icon" [size]="20" [style.color]="cat.color"></lucide-icon>
-              </div>
-              <h4 class="text-sm font-semibold text-[#CDCCCA]">{{ cat.name }}</h4>
-            </div>
-
-            @if (cat.languageSkills) {
-              <!-- Languages with progress bars -->
-              <div class="space-y-3">
-                @for (skill of cat.languageSkills; track skill.name) {
-                  <div>
-                    <div class="flex justify-between mb-1">
-                      <span class="text-sm text-[#A1A1AA]">{{ skill.name }}</span>
-                      <span class="text-xs text-[#797876] font-mono">{{ skill.level }}%</span>
-                    </div>
-                    <div class="skill-bar">
-                      <div class="skill-bar-fill" [style.width.%]="skill.level"></div>
-                    </div>
-                  </div>
-                }
-              </div>
-            } @else if (cat.toolSkills) {
-              <!-- Tools as badges -->
-              <div class="flex flex-wrap gap-2">
-                @for (skill of cat.toolSkills; track skill) {
-                  <span class="px-3 py-1.5 rounded-md bg-[#0D0D12] border border-[#2A2A35] text-[#797876] text-xs font-mono hover:text-[#4F98A3] transition-colors">
-                    {{ skill }}
-                  </span>
-                }
-              </div>
-            }
+    <!-- 3 Engineering Pillars -->
+    <div class="grid md:grid-cols-3 gap-6 pt-4">
+      @for (pillar of pillars; track pillar.title) {
+        <div class="p-6 rounded-xl bg-[#1A1A24] border border-[#2A2A35] hover:border-[#4F98A3] transition-all">
+          <div class="w-10 h-10 rounded-lg bg-[#0D0D12] border border-[#2A2A35] flex items-center justify-center text-[#4F98A3] mb-4">
+            <lucide-icon [name]="pillar.icon" [size]="20"></lucide-icon>
           </div>
-        }
-      </div>
+          <h3 class="text-lg font-bold text-white mb-2">{{ pillar.title }}</h3>
+          <p class="text-xs text-[#797876] leading-relaxed">{{ pillar.description }}</p>
+        </div>
+      }
     </div>
   </div>
 </section>

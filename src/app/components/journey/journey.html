@@ -1,0 +1,71 @@
+<section id="journey" class="py-24 bg-[#0D0D12] relative border-t border-[#1F1F2C]">
+  <div class="w-full max-w-5xl mx-auto px-6 lg:px-12">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1A24] border border-[#2A2A35] text-[#4F98A3] text-xs font-mono mb-4">
+        <lucide-icon [name]="Calendar" [size]="14"></lucide-icon>
+        <span>Chronological Milestones</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Engineering Journey
+      </h2>
+      <p class="text-[#797876] max-w-2xl mx-auto text-base">
+        From competitive hackathons to production RAG systems and autonomous agent research.
+      </p>
+    </div>
+
+    <!-- Vertical Timeline -->
+    <div class="relative border-l border-[#2A2A35] ml-4 md:ml-8 pl-6 md:pl-10 space-y-12">
+      @for (item of timeline; track item.title) {
+        <div class="relative group">
+          <!-- Timeline Node Marker -->
+          <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-[#13131A] border-2 border-[#2A2A35] group-hover:border-[#4F98A3] flex items-center justify-center transition-colors">
+            <span class="w-2 h-2 rounded-full" [style.background]="item.color"></span>
+          </div>
+
+          <!-- Card Content -->
+          <div class="p-6 rounded-xl bg-[#1A1A24] border border-[#2A2A35] group-hover:border-[#4F98A3] transition-all">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#0D0D12] text-[#4F98A3] border border-[#2A2A35]">
+                  {{ item.date }}
+                </span>
+                <span class="text-xs font-mono text-[#797876]">
+                  {{ item.type }}
+                </span>
+              </div>
+              @if (item.link) {
+                <a [href]="item.link" target="_blank" rel="noopener noreferrer"
+                  class="text-xs text-[#4F98A3] hover:underline inline-flex items-center gap-1 font-mono">
+                  <span>Repository</span>
+                  <lucide-icon [name]="ExternalLink" [size]="12"></lucide-icon>
+                </a>
+              }
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#4F98A3] transition-colors">
+              {{ item.title }}
+            </h3>
+
+            <ul class="space-y-2 mb-4">
+              @for (bullet of item.bullets; track bullet) {
+                <li class="text-xs text-[#A1A1AA] leading-relaxed flex items-start gap-2">
+                  <span class="text-[#4F98A3] font-mono mt-0.5">›</span>
+                  <span>{{ bullet }}</span>
+                </li>
+              }
+            </ul>
+
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[#2A2A35]">
+              @for (t of item.tech; track t) {
+                <span class="px-2 py-0.5 rounded bg-[#0D0D12] text-[11px] font-mono text-[#797876]">
+                  {{ t }}
+                </span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

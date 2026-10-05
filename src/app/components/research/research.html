@@ -1,0 +1,269 @@
+<section id="research" class="py-24 bg-[#0D0D12] relative overflow-hidden border-t border-[#1F1F2C]">
+  <!-- Subtle Grid Accent -->
+  <div class="absolute inset-0 opacity-20 pointer-events-none"
+    style="background-image: radial-gradient(rgba(79, 152, 163, 0.15) 1px, transparent 1px); background-size: 40px 40px;">
+  </div>
+
+  <div class="w-full max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1A24] border border-[#2A2A35] text-[#4F98A3] text-xs font-mono mb-4">
+        <lucide-icon [name]="Activity" [size]="14" class="text-[#6DBF8F] animate-pulse"></lucide-icon>
+        <span>Telemetry &amp; Applied Research</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+        Systems &amp; AI Research
+      </h2>
+      <p class="text-[#797876] max-w-2xl mx-auto leading-relaxed text-base">
+        Moving beyond tutorials: benchmarking prefix-caching latency in LLM serving, architecting
+        autonomous multi-agent swarms, and engineering high-throughput RAG retrieval pipelines.
+      </p>
+    </div>
+
+    <!-- Mode Selector Tabs -->
+    <div class="flex justify-center mb-12">
+      <div class="inline-flex p-1.5 rounded-lg bg-[#13131A] border border-[#2A2A35]">
+        <button
+          (click)="setActiveTab('benchmarks')"
+          class="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium transition-all"
+          [ngClass]="activeTab() === 'benchmarks' ? 'bg-[#4F98A3] text-[#0D0D12] font-semibold shadow-lg' : 'text-[#797876] hover:text-white'">
+          <lucide-icon [name]="Zap" [size]="16"></lucide-icon>
+          <span>Prefix-Caching Benchmarks</span>
+        </button>
+        <button
+          (click)="setActiveTab('agents')"
+          class="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium transition-all"
+          [ngClass]="activeTab() === 'agents' ? 'bg-[#4F98A3] text-[#0D0D12] font-semibold shadow-lg' : 'text-[#797876] hover:text-white'">
+          <lucide-icon [name]="Network" [size]="16"></lucide-icon>
+          <span>Multi-Agent Swarm Arch</span>
+        </button>
+        <button
+          (click)="setActiveTab('rag')"
+          class="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium transition-all"
+          [ngClass]="activeTab() === 'rag' ? 'bg-[#4F98A3] text-[#0D0D12] font-semibold shadow-lg' : 'text-[#797876] hover:text-white'">
+          <lucide-icon [name]="Database" [size]="16"></lucide-icon>
+          <span>Hybrid RAG Retrievability</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab 1: Prefix-Caching Benchmarks -->
+    @if (activeTab() === 'benchmarks') {
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+        <!-- Main Analysis Card (7 cols) -->
+        <div class="lg:col-span-7 p-8 rounded-xl bg-[#13131A] border border-[#2A2A35] flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-64 h-64 bg-[#4F98A3]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded bg-[#1A1A24] border border-[#2A2A35] text-xs font-mono text-[#4F98A3]">
+                PAPER &amp; EXPERIMENTAL PROTOCOL
+              </span>
+              <span class="text-xs text-[#6DBF8F] font-mono flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-[#6DBF8F] animate-ping"></span>
+                vLLM / Triton Optimized
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-3">
+              Prefix-Caching Latency Optimization in Multi-Agent Serving
+            </h3>
+            <p class="text-[#A1A1AA] text-sm leading-relaxed mb-6">
+              When orchestrating multiple LLM agents sharing a common system prompt and tool definitions,
+              re-computing KV-cache tensors on every turn creates severe TTFT degradation and GPU memory pressure.
+              By establishing deterministic prefix boundaries and alignment strategies, prompt tokens are re-used
+              directly in GPU SRAM without re-attention passes.
+            </p>
+
+            <!-- Key Findings List -->
+            <div class="space-y-3 mb-8">
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-[#1A1A24]/60 border border-[#2A2A35]">
+                <lucide-icon [name]="CheckCircle2" [size]="18" class="text-[#6DBF8F] shrink-0 mt-0.5"></lucide-icon>
+                <div class="text-xs text-[#CDCCCA]">
+                  <strong class="text-white">7.3x TTFT Reduction:</strong> First-token latency plummets from 310ms to 42ms on 3,000+ token context windows.
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-[#1A1A24]/60 border border-[#2A2A35]">
+                <lucide-icon [name]="CheckCircle2" [size]="18" class="text-[#6DBF8F] shrink-0 mt-0.5"></lucide-icon>
+                <div class="text-xs text-[#CDCCCA]">
+                  <strong class="text-white">Deterministic Context Slots:</strong> Dynamic parameters isolated to prompt tails, preserving 89.4% prefix stability.
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-[#1A1A24]/60 border border-[#2A2A35]">
+                <lucide-icon [name]="CheckCircle2" [size]="18" class="text-[#6DBF8F] shrink-0 mt-0.5"></lucide-icon>
+                <div class="text-xs text-[#CDCCCA]">
+                  <strong class="text-white">Memory Efficiency:</strong> GPU VRAM peak overhead cut by 37.7%, enabling 2.9x higher concurrent agent turn density.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Stack Tags -->
+          <div class="pt-4 border-t border-[#2A2A35] flex flex-wrap gap-2 items-center justify-between">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded bg-[#0D0D12] text-xs font-mono text-[#797876]">vLLM</span>
+              <span class="px-2.5 py-1 rounded bg-[#0D0D12] text-xs font-mono text-[#797876]">Prefix-Caching</span>
+              <span class="px-2.5 py-1 rounded bg-[#0D0D12] text-xs font-mono text-[#797876]">CUDA</span>
+              <span class="px-2.5 py-1 rounded bg-[#0D0D12] text-xs font-mono text-[#797876]">FastAPI</span>
+              <span class="px-2.5 py-1 rounded bg-[#0D0D12] text-xs font-mono text-[#797876]">Go</span>
+              <span class="px-2.5 py-1 rounded bg-[#0D0D12] text-xs font-mono text-[#797876]">Python (uv)</span>
+            </div>
+            <span class="text-xs font-mono text-[#4F98A3]">Lab: Noventra-Labs</span>
+          </div>
+        </div>
+
+        <!-- Metrics Grid (5 cols) -->
+        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+          @for (metric of benchmarks; track metric.label) {
+            <div class="p-5 rounded-xl bg-[#1A1A24] border border-[#2A2A35] hover:border-[#4F98A3] transition-all">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono text-[#797876]">{{ metric.label }}</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-[#6DBF8F]/15 text-[#6DBF8F]">
+                  {{ metric.improvement }}
+                </span>
+              </div>
+              <div class="flex items-baseline justify-between mt-3">
+                <div>
+                  <span class="text-2xl font-bold text-white font-mono">{{ metric.cached }}</span>
+                  <span class="text-xs text-[#6DBF8F] ml-2 font-mono">{{ metric.delta }}</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs text-[#797876] block">Cold Baseline</span>
+                  <span class="text-xs text-[#A1A1AA] line-through font-mono">{{ metric.baseline }}</span>
+                </div>
+              </div>
+              <!-- Bar Visualization -->
+              <div class="mt-3 w-full bg-[#0D0D12] h-1.5 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-[#4F98A3] to-[#6DBF8F] rounded-full" style="width: 88%;"></div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Tab 2: Autonomous Multi-Agent Swarm -->
+    @if (activeTab() === 'agents') {
+      <div class="space-y-8">
+        <!-- Architecture Concept Banner -->
+        <div class="p-6 rounded-xl bg-[#13131A] border border-[#2A2A35] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-1">
+              Autonomous Agent Orchestration Network
+            </h3>
+            <p class="text-sm text-[#797876]">
+              Deterministic DAG workflow engine with isolated role boundaries, state verification gates, and Go/FastAPI workers.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="px-3 py-1.5 rounded-md bg-[#1A1A24] border border-[#2A2A35] text-xs font-mono text-[#4F98A3]">
+              Protocol: AgentTrustLedger
+            </span>
+            <span class="px-3 py-1.5 rounded-md bg-[#6DBF8F]/10 border border-[#6DBF8F]/30 text-xs font-mono text-[#6DBF8F]">
+              4 Swarm Nodes Online
+            </span>
+          </div>
+        </div>
+
+        <!-- Agent Nodes Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          @for (agent of agentSwarm; track agent.name) {
+            <div class="p-6 rounded-xl bg-[#1A1A24] border border-[#2A2A35] hover:border-[#4F98A3] transition-all flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="w-8 h-8 rounded-lg bg-[#0D0D12] border border-[#2A2A35] flex items-center justify-center text-[#4F98A3]">
+                    <lucide-icon [name]="Cpu" [size]="16"></lucide-icon>
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono"
+                    [ngClass]="agent.status === 'active' ? 'bg-[#6DBF8F]/15 text-[#6DBF8F]' : 'bg-[#4F98A3]/15 text-[#4F98A3]'">
+                    <span class="w-1.5 h-1.5 rounded-full" [ngClass]="agent.status === 'active' ? 'bg-[#6DBF8F]' : 'bg-[#4F98A3]'"></span>
+                    {{ agent.status | uppercase }}
+                  </span>
+                </div>
+
+                <h4 class="text-lg font-bold text-white mb-1">{{ agent.name }}</h4>
+                <div class="text-xs font-mono text-[#4F98A3] mb-3">{{ agent.role }}</div>
+                <p class="text-xs text-[#797876] leading-relaxed mb-4">{{ agent.description }}</p>
+              </div>
+
+              <div class="pt-3 border-t border-[#2A2A35]">
+                <span class="text-[11px] font-mono text-[#A1A1AA]">{{ agent.tech }}</span>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Consensus Pipeline Strip -->
+        <div class="p-5 rounded-xl bg-[#0D0D12] border border-[#2A2A35] flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
+          <div class="flex items-center gap-2 text-[#797876]">
+            <span class="w-2 h-2 rounded-full bg-[#4F98A3]"></span>
+            <span>Input Prompt</span>
+          </div>
+          <lucide-icon [name]="ArrowRight" [size]="14" class="text-[#2A2A35] hidden md:block"></lucide-icon>
+          <div class="px-3 py-1.5 rounded bg-[#1A1A24] border border-[#2A2A35] text-[#CDCCCA]">
+            1. Planner (DAG Decomposition)
+          </div>
+          <lucide-icon [name]="ArrowRight" [size]="14" class="text-[#2A2A35] hidden md:block"></lucide-icon>
+          <div class="px-3 py-1.5 rounded bg-[#1A1A24] border border-[#2A2A35] text-[#CDCCCA]">
+            2. ContextLens (Prefix Cached RAG)
+          </div>
+          <lucide-icon [name]="ArrowRight" [size]="14" class="text-[#2A2A35] hidden md:block"></lucide-icon>
+          <div class="px-3 py-1.5 rounded bg-[#1A1A24] border border-[#2A2A35] text-[#CDCCCA]">
+            3. Executor (Go/FastAPI Worker)
+          </div>
+          <lucide-icon [name]="ArrowRight" [size]="14" class="text-[#2A2A35] hidden md:block"></lucide-icon>
+          <div class="px-3 py-1.5 rounded bg-[#6DBF8F]/15 border border-[#6DBF8F]/40 text-[#6DBF8F]">
+            4. RepoGuard (Verified Commit)
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Tab 3: Hybrid RAG Retrievability -->
+    @if (activeTab() === 'rag') {
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-xl bg-[#13131A] border border-[#2A2A35] space-y-4">
+          <div class="w-10 h-10 rounded-lg bg-[#1A1A24] flex items-center justify-center text-[#4F98A3]">
+            <lucide-icon [name]="Database" [size]="20"></lucide-icon>
+          </div>
+          <h4 class="text-lg font-bold text-white">Hybrid Retrieval Engine</h4>
+          <p class="text-xs text-[#797876] leading-relaxed">
+            Combines dense 384-dimensional sentence-transformers embeddings with sparse BM25 lexical token matching,
+            fused via Reciprocal Rank Fusion (RRF) to eliminate semantic blind spots.
+          </p>
+          <div class="p-3 rounded bg-[#0D0D12] border border-[#2A2A35] text-xs font-mono text-[#6DBF8F]">
+            +40% Precision over Cosine Distance
+          </div>
+        </div>
+
+        <div class="p-6 rounded-xl bg-[#13131A] border border-[#2A2A35] space-y-4">
+          <div class="w-10 h-10 rounded-lg bg-[#1A1A24] flex items-center justify-center text-[#6DBF8F]">
+            <lucide-icon [name]="Zap" [size]="20"></lucide-icon>
+          </div>
+          <h4 class="text-lg font-bold text-white">Sub-200ms Latency SLA</h4>
+          <p class="text-xs text-[#797876] leading-relaxed">
+            Engineered with FastAPI async connection pooling and ChromaDB memory-mapped vector indexes deployed
+            on GCP Cloud Run microservices with sub-second cold starts.
+          </p>
+          <div class="p-3 rounded bg-[#0D0D12] border border-[#2A2A35] text-xs font-mono text-[#4F98A3]">
+            P99 Latency: 184ms @ 50 QPS
+          </div>
+        </div>
+
+        <div class="p-6 rounded-xl bg-[#13131A] border border-[#2A2A35] space-y-4">
+          <div class="w-10 h-10 rounded-lg bg-[#1A1A24] flex items-center justify-center text-[#8B7EC8]">
+            <lucide-icon [name]="ShieldCheck" [size]="20"></lucide-icon>
+          </div>
+          <h4 class="text-lg font-bold text-white">Source Attribution &amp; Grounding</h4>
+          <p class="text-xs text-[#797876] leading-relaxed">
+            Deterministic chunk citation mapping for domain-critical pipelines (e.g. FDA drug labels in RAG-DEMO),
+            enforcing verifiable evidence bounds before response generation.
+          </p>
+          <div class="p-3 rounded bg-[#0D0D12] border border-[#2A2A35] text-xs font-mono text-[#8B7EC8]">
+            Zero-Hallucination Guardrails
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

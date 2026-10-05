@@ -1,10 +1,10 @@
 import React from 'react';
-import { Calendar, Briefcase, Trophy, GraduationCap, Sparkles, ExternalLink, Code2 } from 'lucide-react';
+import { Calendar, Briefcase, Trophy, Sparkles, ExternalLink, Code2, Award } from 'lucide-react';
 
 interface TimelineItem {
   date: string;
   title: string;
-  type: 'Active Development' | 'Hackathon' | 'Personal Milestone' | 'Education';
+  type: 'Active Development' | 'Hackathon' | 'Personal Milestone';
   bullets: string[];
   tech: string[];
   icon: React.ElementType;
@@ -20,11 +20,26 @@ const TIMELINE: TimelineItem[] = [
     bullets: [
       'Architecting private resource allocation and optimization engine in Dart/Flutter',
       'Implementing heuristic scheduling algorithms for dynamic workload distribution',
-      'Active development under the Noventra Labs product suite',
+      'Active development of real-time coordination layer powered by Vertex AI',
     ],
-    tech: ['Dart', 'Flutter', 'Optimization', 'Algorithms'],
+    tech: ['Dart', 'Flutter', 'Vertex AI', 'Algorithms'],
     icon: Sparkles,
     color: '#4F98A3',
+    link: 'https://github.com/89Aman/Smart-Resource-Allocation',
+  },
+  {
+    date: 'March 2026',
+    title: 'AgentTrustLedger — Autonomous Agent Escrow',
+    type: 'Personal Milestone',
+    bullets: [
+      'Designed neutral escrow-and-reputation protocol for autonomous agent-to-agent transactions',
+      'Cryptographic verification layer ensuring transactional integrity across multi-agent swarms',
+      'FastAPI microservices architecture with deterministic audit trails',
+    ],
+    tech: ['Python', 'FastAPI', 'Autonomous Agents', 'Pydantic v2'],
+    icon: Code2,
+    color: '#8B7EC8',
+    link: 'https://github.com/89Aman/AgentTrustLedger',
   },
   {
     date: 'February 2026',
@@ -84,15 +99,15 @@ const TIMELINE: TimelineItem[] = [
   },
   {
     date: '2024 – Present',
-    title: 'BCA Disha College & Co-Founded Noventra Labs',
-    type: 'Education',
+    title: 'Core Systems Engineering & Certifications',
+    type: 'Personal Milestone',
     bullets: [
-      'Pursuing Bachelor’s of Computer Applications at Disha College, Raipur (2024–2027)',
-      'Co-founded Noventra Labs — focused on building high-performance AI tools and multi-agent systems',
+      'Engineering autonomous agent architectures, RAG pipelines, and high-concurrency microservices',
       'Earned AWS Generative AI, MongoDB Python Developer, Postman Student Expert, and ML certifications',
+      'Contributing to open-source agent ecosystems and developer productivity tooling',
     ],
-    tech: ['BCA', 'Noventra Labs', 'AWS Certified', 'MongoDB', 'Postman'],
-    icon: GraduationCap,
+    tech: ['AI Agents', 'RAG', 'AWS Certified', 'MongoDB', 'FastAPI'],
+    icon: Award,
     color: '#E879F9',
   },
 ];
@@ -109,7 +124,7 @@ export function Journey() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">My Journey</h2>
           <p className="text-[#797876] max-w-xl mx-auto text-base">
-            From co-founding Noventra Labs to shipping production RAG systems and competing in national hackathons.
+            From hackathon wins to shipping production RAG systems and autonomous agent protocols.
           </p>
         </div>
 

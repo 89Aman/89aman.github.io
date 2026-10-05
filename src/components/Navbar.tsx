@@ -5,8 +5,6 @@ import { Github, Linkedin } from './ui/icons';
 const NAV_LINKS = [
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Tech Stack', href: '#skills' },
-  { name: 'Journey', href: '#journey' },
   { name: 'Certifications', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -57,11 +55,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-[#0D0D12]/85 backdrop-blur-md border-b border-[#2A2A35] py-3.5 shadow-xl shadow-black/40'
           : 'bg-transparent py-5'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Brand */}
@@ -74,9 +71,6 @@ export function Navbar() {
             <Terminal size={16} />
           </div>
           <span className="font-bold text-base tracking-tight text-white">aman.dev</span>
-          <span className="text-[11px] text-[#797876] hidden sm:inline border-l border-[#2A2A35] pl-2.5">
-            Noventra Labs
-          </span>
         </a>
 
         {/* Desktop Nav Links */}
@@ -88,11 +82,10 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                  isActive
+                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${isActive
                     ? 'text-[#4F98A3] bg-[#1A1A24] border border-[#2A2A35]'
                     : 'text-[#A1A1AA] hover:text-white hover:bg-[#1A1A24]/60'
-                }`}
+                  }`}
               >
                 {link.name}
               </a>

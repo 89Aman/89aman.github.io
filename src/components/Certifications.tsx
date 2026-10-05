@@ -12,7 +12,7 @@ interface Certification {
 
 const CERTIFICATIONS: Certification[] = [
   {
-    title: 'AWS Generative AI: Cloud Technology & Services Concepts',
+    title: 'AWS Generative AI: Cloud Services Concepts',
     issuer: 'Amazon Web Services (AWS)',
     color: '#FF9900',
     badgeCode: 'AWS-GENAI',
@@ -50,58 +50,63 @@ const CERTIFICATIONS: Certification[] = [
 
 export function Certifications() {
   return (
-    <section id="certifications" className="py-24 bg-[#13131A]/90 relative border-t border-[#1F1F2C] backdrop-blur-sm">
+    <section id="certifications" className="py-20 bg-[#13131A]/90 relative border-t border-[#1F1F2C] backdrop-blur-sm">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1A24] border border-[#2A2A35] text-[#4F98A3] text-xs font-mono mb-4">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1A24] border border-[#2A2A35] text-[#4F98A3] text-xs font-mono mb-3">
             <ShieldCheck size={13} />
             <span>Verified Credentials</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">Certifications</h2>
-          <p className="text-[#797876] max-w-xl mx-auto text-base">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 font-display">Certifications</h2>
+          <p className="text-[#797876] max-w-xl mx-auto text-sm">
             Formal technical certifications across Generative AI, cloud infrastructure, vector databases, and API architecture.
           </p>
         </div>
 
-        {/* Certifications Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* Minimal Shorter Cards in 3-col Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-10">
           {CERTIFICATIONS.map((cert) => (
             <div
               key={cert.badgeCode}
-              className="p-6 rounded-xl bg-[#1A1A24] border border-[#2A2A35] hover:border-[#4F98A3] transition-all flex flex-col justify-between group hover:shadow-xl hover:shadow-[#4F98A3]/5"
+              className="p-4 rounded-xl bg-[#1A1A24]/90 border border-[#2A2A35] hover:border-[#4F98A3]/70 transition-all flex flex-col justify-between group hover:shadow-lg hover:shadow-[#4F98A3]/5 min-h-[140px]"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div
-                    className="w-10 h-10 rounded-lg bg-[#0D0D12] border border-[#2A2A35] flex items-center justify-center font-mono text-xs font-bold"
-                    style={{ color: cert.color }}
-                  >
-                    <Award size={20} />
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <div className="flex items-center gap-2">
+                    <div
+                      className="w-7 h-7 rounded-md bg-[#0D0D12] border border-[#2A2A35] flex items-center justify-center shrink-0"
+                      style={{ color: cert.color }}
+                    >
+                      <Award size={14} />
+                    </div>
+                    <span className="text-xs text-[#797876] font-mono flex items-center gap-1 truncate">
+                      <CheckCircle size={11} className="text-[#6DBF8F] shrink-0" />
+                      <span className="truncate">{cert.issuer}</span>
+                    </span>
                   </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0D0D12] text-[#A1A1AA] border border-[#2A2A35]">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0D0D12] text-[#A1A1AA] border border-[#2A2A35] shrink-0">
                     {cert.badgeCode}
                   </span>
                 </div>
 
-                <h3 className="font-bold text-white text-base mb-2 group-hover:text-[#4F98A3] transition-colors font-display">
+                <h3 className="font-semibold text-white text-sm group-hover:text-[#4F98A3] transition-colors line-clamp-2 leading-snug">
                   {cert.title}
                 </h3>
-                <p className="text-xs text-[#797876] mb-6 flex items-center gap-1.5">
-                  <CheckCircle size={13} className="text-[#6DBF8F]" />
-                  <span>{cert.issuer}</span>
-                </p>
               </div>
 
-              <a
-                href={cert.credentialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-between px-4 py-2 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-xs font-mono text-[#CDCCCA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
-              >
-                <span>Verify Credential</span>
-                <ExternalLink size={13} />
-              </a>
+              <div className="pt-3 mt-2 border-t border-[#1F1F2C]/60 flex items-center justify-between">
+                <span className="text-[11px] text-[#797876] font-mono">Credential ID</span>
+                <a
+                  href={cert.credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-mono text-[#CDCCCA] hover:text-[#4F98A3] transition-colors"
+                >
+                  <span>Verify</span>
+                  <ExternalLink size={11} />
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -112,11 +117,11 @@ export function Certifications() {
             href="https://www.linkedin.com/in/sharmaaman012/details/certifications/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1A1A24] border border-[#2A2A35] text-[#CDCCCA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all text-sm font-semibold"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#CDCCCA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all text-xs font-mono font-medium"
           >
-            <Linkedin size={16} />
+            <Linkedin size={14} />
             <span>View All Credentials on LinkedIn</span>
-            <ExternalLink size={14} />
+            <ExternalLink size={12} />
           </a>
         </div>
       </div>

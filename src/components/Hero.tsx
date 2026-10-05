@@ -15,7 +15,7 @@ const ROLES = [
   'AI Systems & Backend Architect',
   'Autonomous Multi-Agent Engineer',
   'RAG & High-Concurrency Specialist',
-  'Co-Founder @ Noventra Labs',
+  'Python & Cloud Infrastructure Engineer',
 ];
 
 const QUICK_COMMANDS = ['aman --status', 'aman --skills', 'aman --agents', 'uv run test', 'roast', 'projects'];
@@ -96,35 +96,35 @@ export function Hero() {
     } else if (lower === 'help') {
       output = [
         'Available commands:',
-        '  aman --status      View current role, stack & contact telemetry',
-        '  aman --skills      List verified production stack & toolchains',
-        '  aman --agents      Inspect autonomous multi-agent swarm architecture',
-        '  uv run test        Simulate lightning-fast Python package resolution',
-        '  roast              Run the anti-roast verification engine',
-        '  projects           List top pinned production repositories',
-        '  clear              Clear terminal history',
+        '  aman --status        View current role & contact telemetry',
+        '  aman --architecture  Inspect system architecture & engine design',
+        '  aman --agents        Inspect autonomous multi-agent swarm architecture',
+        '  uv run test          Simulate lightning-fast Python package resolution',
+        '  roast                Run the anti-roast verification engine',
+        '  projects             List top pinned production repositories',
+        '  clear                Clear terminal history',
       ];
     } else if (lower === 'aman --status' || lower === 'status') {
       output = [
         'Name:     Aman Sharma',
         'Role:     AI Systems & Backend Architect',
         'Location: Raipur, CG, India',
-        'Stack:    Python (uv) · FastAPI · RAG & ChromaDB · GCP · AWS',
+        'Focus:    Python (uv) · FastAPI · RAG & Vector DBs · Multi-Agent',
         'Swarm:    4 Active Nodes (Planner · ContextLens · Executor · Guard)',
         'Status:   Open to high-impact ML/Backend internships & collabs',
       ];
-    } else if (lower === 'aman --skills' || lower === 'skills' || lower === 'stack') {
+    } else if (lower === 'aman --architecture' || lower === 'architecture' || lower === 'arch') {
       output = [
-        'Production Tech Stack:',
-        '› Languages:     Python 3.12 (Primary, AsyncIO), SQL, Dart',
-        '› Backends:      FastAPI (500+ QPS, Pydantic v2), Flask, RESTful APIs',
-        '› AI & ML:       Autonomous Agents, RAG Pipelines, ChromaDB, Gemini 2.5',
-        '› Cloud/DevOps:  GCP Cloud Run, Docker, AWS S3/EC2, Supabase, uv',
-        '› Databases:     PostgreSQL, Supabase, MongoDB, ChromaDB Vector Store',
+        'Core System Architecture:',
+        '› Core Runtime:  Python 3.12 (AsyncIO, uv package manager)',
+        '› Backend APIs:  FastAPI (Pydantic v2, streaming SSE endpoints)',
+        '› AI Pipeline:   Autonomous Multi-Agent Swarms, RAG, ChromaDB',
+        '› Cloud/Infra:   GCP Cloud Run, Docker, AWS S3/EC2, Supabase',
+        '› Protocols:     Cryptographic Agent Audit Trails, Vector Similarity',
       ];
     } else if (lower === 'aman --agents' || lower === 'agents') {
       output = [
-        'Orchestrator: Multi-Agent Swarm (Noventra Labs)',
+        'Orchestrator: Multi-Agent Swarm Engine',
         '› [Planner]      DAG task decomposition with state-graph workflows',
         '› [ContextLens]  384-dim dense vector retrieval & context compression',
         '› [Executor]     Python & FastAPI high-concurrency sandboxed dispatch',
@@ -295,7 +295,7 @@ export function Hero() {
               >
                 <Mail size={18} />
               </a>
-              <span className="text-xs font-mono text-[#797876] ml-2">Co-founder, Noventra Labs</span>
+              <span className="text-xs font-mono text-[#797876] ml-2">AI Systems &amp; Backend Engineer</span>
             </div>
           </div>
 
@@ -308,7 +308,7 @@ export function Hero() {
                   <span className="w-3 h-3 rounded-full bg-[#EF4444]/80"></span>
                   <span className="w-3 h-3 rounded-full bg-[#F59E0B]/80"></span>
                   <span className="w-3 h-3 rounded-full bg-[#10B981]/80"></span>
-                  <span className="text-xs font-mono text-[#797876] ml-2">aman@noventra-edge:~</span>
+                  <span className="text-xs font-mono text-[#797876] ml-2">aman@edge:~</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0D0D12] text-[#6DBF8F] border border-[#2A2A35]">

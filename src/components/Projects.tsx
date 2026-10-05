@@ -15,6 +15,45 @@ export interface Project {
 
 const PROJECTS: Project[] = [
   {
+    title: 'AgentTrustLedger',
+    description: 'Neutral escrow-and-reputation protocol and verification layer for autonomous agent-to-agent transactions.',
+    fullDescription: [
+      'Engineered an autonomous escrow protocol allowing AI agents to book, procure, and settle transactions safely',
+      'Cryptographic state transitions and deterministic audit trails for multi-agent workflows',
+      'FastAPI microservices architecture with persistent transactional ledger',
+    ],
+    tech: ['Python', 'FastAPI', 'Autonomous Agents', 'Cryptography', 'Pydantic v2'],
+    github: 'https://github.com/89Aman/AgentTrustLedger',
+    featured: true,
+    category: ['AI / Multi-Agent', 'Cloud & Infra'],
+  },
+  {
+    title: 'ContextLens',
+    description: 'AI-driven developer companion capturing coding intent, tracking development episodes, and generating project telemetry.',
+    fullDescription: [
+      'Captures granular development intent and aggregates coding episodes into searchable context graphs',
+      'Provides unified dashboard insights and interactive CLI telemetry for multi-agent workflows',
+      'Vector semantic search over commit logs and codebase modifications',
+    ],
+    tech: ['Python', 'FastAPI', 'Vector Search', 'CLI', 'RAG'],
+    github: 'https://github.com/89Aman/Contextlens',
+    featured: true,
+    category: ['AI / Multi-Agent', 'RAG & Search'],
+  },
+  {
+    title: 'TalentLens',
+    description: 'Intelligent candidate evaluation and ranking system replacing keyword filtering with comparative LLM reasoning.',
+    fullDescription: [
+      'Replaces rigid keyword-matching with semantic 384-dim vector retrieval and comparative LLM evaluations',
+      'Deep rubric scoring and resume parsing pipeline with sub-second matching response',
+      'Production API with persistent candidate evaluation records',
+    ],
+    tech: ['Python', 'FastAPI', 'Gemini 1.5 Flash', 'ChromaDB', 'Vector Search'],
+    github: 'https://github.com/89Aman/Talentlens',
+    featured: true,
+    category: ['AI / Multi-Agent', 'RAG & Search', 'Full-Stack'],
+  },
+  {
     title: 'Parivesh 3.0',
     description: 'Environmental Clearance workflow engine with React + FastAPI, Supabase PostgreSQL, and AI-generated MoM briefs.',
     fullDescription: [
@@ -44,6 +83,19 @@ const PROJECTS: Project[] = [
     category: ['AI / Multi-Agent', 'RAG & Search', 'Cloud & Infra', 'Full-Stack'],
   },
   {
+    title: 'Smart Resource Allocation',
+    description: 'Offline-capable coordination platform powered by Vertex AI and secured by identity verification for field operations.',
+    fullDescription: [
+      'Humanitarian logistics platform connecting field coordinators, volunteers, and admins in real-time',
+      'Vertex AI routing and priority heuristics for resource dispatching under low-connectivity constraints',
+      'Offline data synchronization with local storage cache',
+    ],
+    tech: ['FastAPI', 'Vertex AI', 'Offline Sync', 'Cloud Run', 'Python'],
+    github: 'https://github.com/89Aman/Smart-Resource-Allocation',
+    featured: true,
+    category: ['AI / Multi-Agent', 'Cloud & Infra'],
+  },
+  {
     title: 'CampusFix',
     description: 'Smart campus facility management platform built for GDG Solution Challenge. 500+ QPS FastAPI backend + Flutter.',
     fullDescription: [
@@ -54,22 +106,8 @@ const PROJECTS: Project[] = [
     ],
     tech: ['FastAPI', 'Flutter', 'Supabase PostgreSQL', 'GCP Cloud Run', 'Docker', 'JWT'],
     github: 'https://github.com/89Aman/CampusFix',
-    featured: true,
+    featured: false,
     category: ['Full-Stack', 'Cloud & Infra', 'Hackathon'],
-  },
-  {
-    title: 'RAG-DEMO (FDA Drug Assistant)',
-    description: 'Transforms static FDA drug label PDFs into an interactive conversational interface using Google RAG architecture and Gemini 2.5 Flash.',
-    fullDescription: [
-      'Automated PDF indexing pipeline for multiple drug labels via Google File Search API',
-      'Semantic chunking enables cross-document drug interaction queries with grounded attribution',
-      'Source citation system with document page excerpts and confidence scores',
-      'Sub-second retrieval latency with verifiable responses',
-    ],
-    tech: ['Python', 'Google GenAI SDK', 'Gemini 2.5 Flash', 'File Search API', 'RAG'],
-    github: 'https://github.com/89Aman/RAG-DEMO',
-    featured: true,
-    category: ['AI / Multi-Agent', 'RAG & Search'],
   },
   {
     title: 'SkillSnap',
@@ -82,34 +120,8 @@ const PROJECTS: Project[] = [
     ],
     tech: ['React', 'FastAPI', 'Gemini API', 'Piston API', 'Cloud SQL', 'Python'],
     github: 'https://github.com/89Aman/SkillSnap',
-    featured: true,
+    featured: false,
     category: ['AI / Multi-Agent', 'Hackathon', 'Full-Stack'],
-  },
-  {
-    title: 'Fullstack Movie Recommendation',
-    description: 'Collaborative filtering ML recommendation model in TensorFlow/Keras integrated with a cross-platform Flutter mobile UI.',
-    fullDescription: [
-      'TensorFlow/Keras collaborative filtering recommendation model trained on movie-lens embeddings',
-      'Full pipeline: data preprocessing → model training → API serving → Flutter mobile frontend',
-      'Cross-platform mobile UI consuming the inference endpoint with offline cache',
-    ],
-    tech: ['Flutter', 'TensorFlow', 'Python', 'Jupyter Notebook', 'Dart', 'FastAPI'],
-    github: 'https://github.com/89Aman/Fullstack-movie-recommendation-system',
-    featured: false,
-    category: ['AI / Multi-Agent', 'Full-Stack'],
-  },
-  {
-    title: 'Material Demand Forecasting',
-    description: 'Demand forecasting system for industrial inventory. Applies time-series forecasting and ML to predict material requirements.',
-    fullDescription: [
-      'Time series predictive modeling for material inventory workflows',
-      'Explores rolling-window features and gradient boosting regressors',
-      'Built with Python dashboards for data-driven decisions',
-    ],
-    tech: ['Python', 'scikit-learn', 'Pandas', 'Time Series ML'],
-    github: 'https://github.com/89Aman/Material-Demand-Forecasting',
-    featured: false,
-    category: ['AI / Multi-Agent'],
   },
   {
     title: 'Text Classification Model',
@@ -123,31 +135,6 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/89Aman/text-classification-model',
     featured: false,
     category: ['AI / Multi-Agent'],
-  },
-  {
-    title: 'SortViz',
-    description: 'Interactive sorting algorithm visualizer in vanilla JS. Real-time animated step-by-step Bubble, Merge, and Quick sort.',
-    fullDescription: [
-      'Interactive step-by-step visual demonstration of CS sorting algorithms',
-      'Vanilla JS canvas animation with configurable execution speed and array size',
-    ],
-    tech: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'Algorithms'],
-    github: 'https://github.com/89Aman/SortViz',
-    featured: false,
-    category: ['Full-Stack'],
-  },
-  {
-    title: 'Library Management System',
-    description: 'Full-stack web application for managing books, users, and borrowing workflows built with Flask, MongoDB, and Bcrypt.',
-    fullDescription: [
-      'Flask web framework + MongoDB via pymongo with indexed search',
-      'User authentication with bcrypt password hashing and session management',
-      'Role-based access control for administrators vs library members',
-    ],
-    tech: ['Python', 'Flask', 'MongoDB', 'pymongo', 'bcrypt', 'HTML/CSS'],
-    github: 'https://github.com/89Aman/library-mangement-system',
-    featured: false,
-    category: ['Full-Stack'],
   },
 ];
 
@@ -169,11 +156,11 @@ export function Projects() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1A24] border border-[#2A2A35] text-[#4F98A3] text-xs font-mono mb-4">
               <FolderGit2 size={13} />
-              <span>Production Systems &amp; Hackathons</span>
+              <span>Production Systems &amp; Repositories</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white font-display">Featured Projects</h2>
             <p className="text-[#797876] mt-2 max-w-xl text-sm">
-              Real-world systems spanning autonomous agentic workflows, RAG search engines, and high-concurrency microservices.
+              Production systems and open-source repositories spanning multi-agent protocols, semantic RAG search, and high-concurrency microservices.
             </p>
           </div>
 

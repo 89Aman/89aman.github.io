@@ -5,8 +5,6 @@ import { Github, Linkedin } from './ui/icons';
 const QUICK_LINKS = [
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Tech Stack', href: '#skills' },
-  { name: 'Journey', href: '#journey' },
   { name: 'Certifications', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -48,7 +46,7 @@ export function Footer() {
               Engineering autonomous multi-agent workflows, production RAG search engines, and resilient cloud backends.
             </p>
             <p className="text-[#797876] text-xs font-mono">
-              Raipur, Chhattisgarh, India · Noventra Labs
+              Raipur, Chhattisgarh, India
             </p>
           </div>
 

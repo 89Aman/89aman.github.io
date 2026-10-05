@@ -4,7 +4,7 @@ import { Rocket, Heart, Code2, Cloud, Cpu, Zap, Server } from 'lucide-react';
 const STATS = [
   { icon: Rocket, value: '4', label: 'Production Systems' },
   { icon: Heart, value: '4', label: 'Verified Certifications' },
-  { icon: Code2, value: '24+', label: 'GitHub Repositories' },
+  { icon: Code2, value: '20+', label: 'GitHub Repositories' },
   { icon: Cloud, value: '2', label: 'Cloud Platforms (GCP + AWS)' },
 ];
 
@@ -14,11 +14,10 @@ const VALUES = [
   'FastAPI (Async)',
   'Python 3.12 (uv)',
   'GCP Cloud Run',
-  'AWS Cloud',
   'ChromaDB Vector Store',
   'Docker Sandboxes',
   'Event-Driven Architecture',
-  'Noventra Labs',
+  'High-Throughput APIs',
 ];
 
 const PILLARS = [
@@ -70,7 +69,7 @@ export function About() {
                 <div className="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-[#0D0D12]/90 backdrop-blur border border-[#2A2A35] flex items-center justify-between">
                   <div>
                     <span className="block text-xs font-bold text-white font-mono">Aman Sharma</span>
-                    <span className="text-[11px] text-[#4F98A3] font-mono">Disha College · Noventra Labs</span>
+                    <span className="text-[11px] text-[#4F98A3] font-mono">Raipur, India · Systems Engineer</span>
                   </div>
                   <span className="w-2.5 h-2.5 rounded-full bg-[#6DBF8F] animate-pulse"></span>
                 </div>
@@ -83,12 +82,11 @@ export function About() {
             <div className="space-y-4 text-[#CDCCCA] leading-relaxed text-base">
               <p>
                 Hi, I'm <strong className="text-white">Aman</strong> — an AI Systems and Backend Engineer based in Raipur, Chhattisgarh.
-                Currently pursuing my Bachelor's in Computer Applications at Disha College (2024–2027), I engineer
-                <strong className="text-[#4F98A3]"> autonomous multi-agent architectures</strong>,
-                <strong className="text-[#4F98A3]"> production RAG pipelines</strong>, and high-concurrency backends using Python, FastAPI, and uv.
+                I specialize in engineering <strong className="text-[#4F98A3]">autonomous multi-agent architectures</strong>,
+                <strong className="text-[#4F98A3]">production RAG pipelines</strong>, and high-concurrency backends using Python, FastAPI, and uv.
               </p>
               <p>
-                I co-founded <strong className="text-white">Noventra Labs</strong> to build autonomous agentic workflows and production-grade intelligent systems.
+                I build autonomous agentic workflows and production-grade intelligent systems.
                 I regularly compete in hackathons — including building the <strong className="text-[#6DBF8F]">Parivesh 3.0</strong> environmental clearance engine at IIIT Naya Raipur's e-summit,
                 the <strong className="text-[#6DBF8F]">CampusFix</strong> 500+ QPS platform for GDG Solution Challenge, and <strong className="text-[#6DBF8F]">SkillSnap</strong> for The Forge Hackathon.
               </p>

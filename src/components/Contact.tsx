@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Globe, Send, CalendarCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Mail, Globe, Send, CalendarCheck, ArrowRight, CheckCircle2, Video, Zap, Clock } from 'lucide-react';
 import { Github, Linkedin } from './ui/icons';
 
 const CONTACT_METHODS = [
@@ -61,7 +61,7 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
           {/* Left: Contact Methods */}
           <div className="space-y-6">
             <p className="text-[#CDCCCA] leading-relaxed text-sm md:text-base">
@@ -119,8 +119,12 @@ export function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-mono text-[#797876] uppercase mb-2">Your Name</label>
+                  <label htmlFor="contact-name" className="block text-xs font-mono text-[#797876] uppercase mb-2">
+                    Your Name
+                  </label>
                   <input
+                    id="contact-name"
+                    name="name"
                     type="text"
                     required
                     value={formData.name}
@@ -130,8 +134,12 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-[#797876] uppercase mb-2">Your Email</label>
+                  <label htmlFor="contact-email" className="block text-xs font-mono text-[#797876] uppercase mb-2">
+                    Your Email
+                  </label>
                   <input
+                    id="contact-email"
+                    name="email"
                     type="email"
                     required
                     value={formData.email}
@@ -141,13 +149,17 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-[#797876] uppercase mb-2">Message</label>
+                  <label htmlFor="contact-message" className="block text-xs font-mono text-[#797876] uppercase mb-2">
+                    Message
+                  </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     rows={4}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Let's build a multi-agent system or discuss a project..."
+                    placeholder="Let's discuss autonomous agent architecture or backend systems..."
                     className="w-full px-4 py-3 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-[#CDCCCA] placeholder-[#797876] focus:border-[#4F98A3] focus:outline-none transition-colors text-sm font-mono resize-none"
                   />
                 </div>
@@ -163,34 +175,87 @@ export function Contact() {
           </div>
         </div>
 
-        {/* Book a Meeting CTA */}
-        <div className="mt-16 text-center">
-          <div className="relative inline-block w-full max-w-2xl mx-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#4F98A3] to-[#6DBF8F] rounded-2xl opacity-20 blur-xl"></div>
-            <div className="relative p-8 md:p-10 rounded-2xl bg-[#13131A] border border-[#2A2A35]">
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#4F98A3] to-[#6DBF8F] flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#4F98A3]/20">
-                <CalendarCheck size={26} className="text-[#0D0D12]" />
+        {/* ULTRA-PREMIUM Book a Meeting Card */}
+        <div className="text-center">
+          <div className="relative inline-block w-full max-w-3xl mx-auto">
+            {/* Outer Animated Gradient Border Glow */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#4F98A3] via-[#6DBF8F] to-[#4F98A3] rounded-3xl opacity-30 blur-2xl animate-pulse"></div>
+
+            {/* Premium Card Surface */}
+            <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-[#4F98A3]/40 via-[#2A2A35] to-[#1A1A24]">
+              <div className="relative p-8 sm:p-12 md:p-14 rounded-3xl bg-gradient-to-b from-[#181824]/95 via-[#13131A]/95 to-[#0D0D12]/98 backdrop-blur-2xl overflow-hidden shadow-2xl">
+                {/* Radial ambient lighting inside card */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-40"
+                  style={{
+                    backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(79, 152, 163, 0.35) 0%, transparent 70%)',
+                  }}
+                />
+
+                {/* Status Availability Badge */}
+                <div className="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D0D12]/90 border border-[#2A2A35] text-xs font-mono mb-6 text-[#A1A1AA] shadow-inner">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+                  </span>
+                  <span className="text-[#CDCCCA] font-medium">Available for Tech Syncs &amp; Deep-Dives</span>
+                </div>
+
+                {/* Meeting Icon */}
+                <div className="relative flex justify-center mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#4F98A3] to-[#6DBF8F] flex items-center justify-center shadow-xl shadow-[#4F98A3]/30 ring-4 ring-[#4F98A3]/10">
+                    <CalendarCheck size={30} className="text-[#0D0D12]" />
+                  </div>
+                </div>
+
+                {/* Heading */}
+                <h3 className="relative text-3xl sm:text-4xl font-bold text-white mb-3 font-display tracking-tight">
+                  Prefer a{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F98A3] via-[#6DBF8F] to-[#4F98A3]">
+                    live conversation
+                  </span>
+                  ?
+                </h3>
+
+                {/* Subtitle */}
+                <p className="relative text-[#A1A1AA] max-w-lg mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+                  Skip the back-and-forth emails. Pick a time directly on my calendar to talk multi-agent architecture, backend infrastructure, or engineering collaborations.
+                </p>
+
+                {/* CTA Button */}
+                <div className="relative">
+                  <a
+                    href="https://cal.com/aman-sharma-a0i0rd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="book-meeting-cta"
+                    className="group relative inline-flex items-center justify-center gap-3 px-9 py-4 bg-gradient-to-r from-[#4F98A3] via-[#5ec4b1] to-[#6DBF8F] text-[#0D0D12] rounded-xl font-bold text-base shadow-xl shadow-[#4F98A3]/30 hover:shadow-[#4F98A3]/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+                  >
+                    <CalendarCheck size={20} />
+                    <span>Book a Meeting</span>
+                    <ArrowRight
+                      size={18}
+                      className="group-hover:translate-x-1.5 transition-transform duration-200"
+                    />
+                  </a>
+                </div>
+
+                {/* Feature Value Props */}
+                <div className="relative mt-8 pt-6 border-t border-[#2A2A35]/60 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-mono text-[#797876]">
+                  <span className="flex items-center gap-1.5">
+                    <Zap size={14} className="text-[#6DBF8F]" />
+                    <span>Instant Confirmation</span>
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Clock size={14} className="text-[#4F98A3]" />
+                    <span>30 Minutes · Free</span>
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Video size={14} className="text-[#8B7EC8]" />
+                    <span>Google Meet Link</span>
+                  </span>
+                </div>
               </div>
-
-              <h3 className="text-2xl font-bold text-white mb-2 font-display">
-                Prefer a <span className="text-[#4F98A3]">live conversation</span>?
-              </h3>
-              <p className="text-sm text-[#797876] max-w-md mx-auto mb-6">
-                Skip the email queue. Book a 30-minute sync on Cal.com to discuss project architecture, hackathons, or engineering roles.
-              </p>
-
-              <a
-                href="https://cal.com/aman-sharma-a0i0rd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-[#4F98A3] to-[#6DBF8F] text-[#0D0D12] rounded-xl font-semibold text-base shadow-lg shadow-[#4F98A3]/25 hover:scale-[1.03] active:scale-[0.98] transition-all"
-              >
-                <CalendarCheck size={18} />
-                <span>Book a Meeting</span>
-                <ArrowRight size={16} />
-              </a>
-
-              <p className="text-xs text-[#797876] mt-4 font-mono">⚡ Free · 30 min · Cal.com</p>
             </div>
           </div>
         </div>

@@ -29,8 +29,8 @@ export class ContactComponent {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'sharmaaman26',
-      href: 'https://linkedin.com/in/sharmaaman26',
+      value: 'sharmaaman012',
+      href: 'https://linkedin.com/in/sharmaaman012',
       color: '#0077b5',
     },
     {

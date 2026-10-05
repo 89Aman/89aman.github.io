@@ -66,7 +66,7 @@ export function Footer() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://linkedin.com/in/sharmaaman26"
+                href="https://linkedin.com/in/sharmaaman012"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#13131A] border border-[#22222E] text-[#CDCCCA] hover:text-[#4F98A3] hover:border-[#4F98A3]/50 transition-all text-xs font-mono group"

@@ -28,7 +28,7 @@ export class FooterComponent {
 
   socialLinks = [
     { icon: Github, href: 'https://github.com/89Aman', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/sharmaaman26', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/sharmaaman012', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:shasarita23@gmail.com', label: 'Email' },
   ];
 

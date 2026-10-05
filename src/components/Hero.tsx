@@ -13,11 +13,10 @@ import { Github, Linkedin } from './ui/icons';
 const ROLES = [
   'AI Systems & Backend Architect',
   'Autonomous Multi-Agent Engineer',
-  'RAG & High-Concurrency Specialist',
   'Python & Cloud Infrastructure Engineer',
 ];
 
-const QUICK_COMMANDS = ['aman --status', 'aman --architecture', 'aman --agents', 'uv run test', 'roast', 'projects'];
+const QUICK_COMMANDS = ['aman --status', 'aman --architecture', 'aman --agents', 'uv run test', 'projects'];
 
 interface TerminalHistoryItem {
   prompt: string;
@@ -42,7 +41,6 @@ export function Hero() {
         'Role:     AI Systems & Backend Architect',
         'Location: Raipur, CG, India',
         'Stack:    Python (uv) · FastAPI · RAG & ChromaDB · GCP · AWS',
-        'Swarm:    4 Active Nodes (Planner · ContextLens · Executor · Guard)',
         'Status:   Open to high-impact ML/Backend internships & collabs',
       ],
     },
@@ -73,7 +71,7 @@ export function Hero() {
       } else {
         setRoleIndex((prev) => (prev + 1) % ROLES.length);
         setIsTyping(true);
-        timeout = setTimeout(() => {}, 400);
+        timeout = setTimeout(() => { }, 400);
       }
     }
 
@@ -244,7 +242,7 @@ export function Hero() {
               </a>
 
               <a
-                href="https://linkedin.com/in/sharmaaman26"
+                href="https://linkedin.com/in/sharmaaman012"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-3 border border-[#2A2A35] text-[#797876] hover:text-white rounded-lg font-medium hover:bg-[#1A1A24] transition-all flex items-center gap-2"
@@ -264,7 +262,7 @@ export function Hero() {
                   <Github size={18} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/sharmaaman26"
+                  href="https://linkedin.com/in/sharmaaman012"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
@@ -337,10 +335,10 @@ export function Hero() {
                           item.isError
                             ? 'text-red-400 pl-4'
                             : line.startsWith('›')
-                            ? 'text-[#4F98A3] pl-2 font-medium'
-                            : line.startsWith('Name:') || line.startsWith('Role:') || line.startsWith('Stack:')
-                            ? 'text-[#CDCCCA] pl-2'
-                            : 'text-[#A1A1AA] pl-4'
+                              ? 'text-[#4F98A3] pl-2 font-medium'
+                              : line.startsWith('Name:') || line.startsWith('Role:') || line.startsWith('Stack:')
+                                ? 'text-[#CDCCCA] pl-2'
+                                : 'text-[#A1A1AA] pl-4'
                         }
                       >
                         {line}

@@ -105,7 +105,7 @@ export function Navbar() {
             <Github size={16} />
           </a>
           <a
-            href="https://linkedin.com/in/sharmaaman26"
+            href="https://linkedin.com/in/sharmaaman012"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#A1A1AA] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
@@ -155,7 +155,7 @@ export function Navbar() {
               <Github size={14} /> GitHub
             </a>
             <a
-              href="https://linkedin.com/in/sharmaaman26"
+              href="https://linkedin.com/in/sharmaaman012"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 rounded bg-[#1A1A24] border border-[#2A2A35] text-xs text-[#CDCCCA] flex items-center gap-2"

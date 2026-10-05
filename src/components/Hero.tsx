@@ -3,7 +3,6 @@ import {
   ArrowDown,
   Download,
   RotateCcw,
-  Sparkles,
   Send,
   Mail,
   CheckCircle2,
@@ -18,7 +17,7 @@ const ROLES = [
   'Python & Cloud Infrastructure Engineer',
 ];
 
-const QUICK_COMMANDS = ['aman --status', 'aman --skills', 'aman --agents', 'uv run test', 'roast', 'projects'];
+const QUICK_COMMANDS = ['aman --status', 'aman --architecture', 'aman --agents', 'uv run test', 'roast', 'projects'];
 
 interface TerminalHistoryItem {
   prompt: string;
@@ -249,15 +248,6 @@ export function Hero() {
               </a>
 
               <a
-                href="#contact"
-                onClick={(e) => scrollToSection(e, 'contact')}
-                className="px-6 py-3 bg-[#1A1A24]/90 border border-[#2A2A35] text-[#CDCCCA] hover:text-[#4F98A3] hover:border-[#4F98A3] rounded-lg font-semibold transition-all flex items-center gap-2 backdrop-blur-sm"
-              >
-                <Sparkles size={16} className="text-[#4F98A3]" />
-                <span>Get in Touch</span>
-              </a>
-
-              <a
                 href="https://linkedin.com/in/sharmaaman26"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -325,7 +315,7 @@ export function Hero() {
               </div>
 
               {/* Quick Command Chips */}
-              <div className="px-4 py-2 bg-[#0D0D12] border-b border-[#2A2A35] flex items-center gap-1.5 overflow-x-auto text-xs font-mono scrollbar-none">
+              <div className="px-4 py-2 bg-[#0D0D12] border-b border-[#2A2A35] flex items-center gap-1.5 overflow-x-auto text-xs font-mono scrollbar-none no-scrollbar">
                 <span className="text-[#797876] shrink-0">Quick run:</span>
                 {QUICK_COMMANDS.map((cmd) => (
                   <button
@@ -339,7 +329,7 @@ export function Hero() {
               </div>
 
               {/* Terminal Log Area */}
-              <div ref={terminalBodyRef} className="p-4 font-mono text-xs max-h-80 overflow-y-auto space-y-3 bg-[#0D0D12]/60 scroll-smooth">
+              <div ref={terminalBodyRef} className="p-4 font-mono text-xs max-h-80 overflow-y-auto space-y-3 bg-[#0D0D12]/60 scroll-smooth scrollbar-none no-scrollbar">
                 {terminalHistory.map((item, idx) => (
                   <div key={idx} className="space-y-1">
                     <div className="flex items-center gap-2 text-[#797876]">
@@ -379,7 +369,7 @@ export function Hero() {
                   type="text"
                   value={terminalInput}
                   onChange={(e) => setTerminalInput(e.target.value)}
-                  placeholder="type command (e.g. 'help', 'roast', 'aman --skills')..."
+                  placeholder="type command (e.g. 'help', 'roast', 'aman --architecture')..."
                   className="flex-1 bg-transparent text-white font-mono text-xs focus:outline-none placeholder-[#797876]"
                 />
                 <button

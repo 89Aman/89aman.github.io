@@ -179,14 +179,17 @@ export function Contact() {
         <div className="text-center">
           <div className="relative inline-block w-full max-w-3xl mx-auto">
             {/* Apple Liquid Glass: Deep Fluid Caustic Backlight & Dispersion */}
-            <div className="absolute -inset-3 rounded-[3rem] bg-gradient-to-tr from-[#4F98A3]/30 via-[#38BDF8]/20 to-[#6DBF8F]/30 blur-3xl opacity-60 animate-pulse pointer-events-none"></div>
-            <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-[#4F98A3] via-[#6DBF8F] to-[#38BDF8] rounded-3xl opacity-40 blur-2xl animate-pulse pointer-events-none"></div>
+            <div className="absolute -inset-4 rounded-[3.5rem] liquid-glass-glow opacity-55 pointer-events-none"></div>
+            <div className="absolute -inset-1.5 rounded-[2.5rem] bg-gradient-to-r from-[#4F98A3] via-[#6DBF8F] to-[#38BDF8] opacity-40 blur-xl animate-pulse pointer-events-none"></div>
 
             {/* Apple Liquid Glass: Polished Specular Crystal Bevel & Border Frame */}
-            <div className="relative rounded-[2rem] p-[1px] bg-gradient-to-b from-white/35 via-[#4F98A3]/30 to-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.8),0_0_40px_rgba(79,152,163,0.25)]">
+            <div className="relative rounded-[2rem] p-[1px] bg-gradient-to-b from-white/40 via-[#4F98A3]/30 to-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.8),0_0_40px_rgba(79,152,163,0.3)]">
               {/* Liquid Glass Body: High Refraction + Saturation + Frosted Depth */}
-              <div className="relative p-8 sm:p-12 md:p-14 rounded-[2rem] bg-gradient-to-b from-[#161622]/80 via-[#111118]/75 to-[#0B0B10]/85 backdrop-blur-3xl backdrop-saturate-[190%] overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),inset_0_-1px_1px_rgba(0,0,0,0.6)]">
+              <div className="relative p-8 sm:p-12 md:p-14 rounded-[2rem] bg-gradient-to-b from-[#161622]/80 via-[#111118]/75 to-[#0B0B10]/85 backdrop-blur-3xl backdrop-saturate-[200%] overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_-1px_1px_rgba(0,0,0,0.6)]">
                 
+                {/* Apple VisionOS Dynamic Shimmer Sweep */}
+                <div className="liquid-glass-sheen" />
+
                 {/* Specular Diagonal Sheen (Apple VisionOS Glass Refraction) */}
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/[0.12] via-transparent to-transparent opacity-80" />
                 

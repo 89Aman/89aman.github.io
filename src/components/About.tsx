@@ -81,18 +81,10 @@ export function About() {
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-4 text-[#CDCCCA] leading-relaxed text-base">
               <p>
-                Hi, I'm <strong className="text-white">Aman</strong> — an AI Systems and Backend Engineer based in Raipur, Chhattisgarh.
-                I specialize in engineering <strong className="text-[#4F98A3]">autonomous multi-agent architectures</strong>,
-                <strong className="text-[#4F98A3]">production RAG pipelines</strong>, and high-concurrency backends using Python, FastAPI, and uv.
+                Hi, I’m <strong className="text-white">Aman Sharma</strong>, an AI Systems and Backend Engineer based in Raipur, Chhattisgarh. I specialize in designing <strong className="text-[#4F98A3]">autonomous multi-agent architectures</strong>, building <strong className="text-[#4F98A3]">production-grade RAG pipelines</strong>, and developing <strong className="text-[#4F98A3]">high-concurrency backend systems</strong> using Python, FastAPI, and uv.
               </p>
-              <p>
-                I build autonomous agentic workflows and production-grade intelligent systems.
-                I regularly compete in hackathons — including building the <strong className="text-[#6DBF8F]">Parivesh 3.0</strong> environmental clearance engine at IIIT Naya Raipur's e-summit,
-                the <strong className="text-[#6DBF8F]">CampusFix</strong> 500+ QPS platform for GDG Solution Challenge, and <strong className="text-[#6DBF8F]">SkillSnap</strong> for The Forge Hackathon.
-              </p>
-              <p className="text-sm text-[#797876]">
-                Certified in AWS Generative AI, MongoDB Python Developer Path, Postman Student Expert, and Machine Learning Fundamentals.
-                I believe software should be fast, deterministic, and built to solve real-world problems.
+              <p className="text-white/90 font-medium">
+                I build intelligent, scalable systems that combine agentic workflows with reliable backend infrastructure.
               </p>
             </div>
 

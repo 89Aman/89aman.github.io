@@ -1,5 +1,4 @@
 import React from 'react';
-import { Interactive3DBackground } from '@/components/ui/interactive-3d-bg';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -13,9 +12,6 @@ import { Footer } from './components/Footer';
 export default function App() {
   return (
     <div className="relative min-h-screen bg-[#0D0D12] text-[#CDCCCA] overflow-x-hidden selection:bg-[#4F98A3] selection:text-[#0D0D12]">
-      {/* Procedural WebGL 3D Interactive Background */}
-      <Interactive3DBackground />
-
       {/* Navigation */}
       <Navbar />
 

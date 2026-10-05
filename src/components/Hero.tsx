@@ -140,7 +140,7 @@ export function Hero() {
         '  test_agent_dag_execution ........... PASSED [0.08s]',
         '  test_rag_vector_search ............. PASSED [0.04s]',
         '  test_fastapi_concurrency_500qps .... PASSED [0.12s]',
-        '  test_webgl_3d_canvas ............... PASSED [0.01s]',
+        '  test_react_component_tree ......... PASSED [0.01s]',
         'Result: 4 passed in 0.25s (100% pass rate)',
       ];
     } else if (lower === 'roast') {
@@ -148,7 +148,6 @@ export function Hero() {
         '🔥 Roast Response: "Digital ghost town? Tired of centering divs?"',
         '› Div centering: Sub-pixel precision validated across all viewports.',
         '› Context engine: Operating at 100% token headroom.',
-        '› 3D Engine: Procedural WebGL running smoothly at 60fps.',
         '› Multi-agent swarm: 4 nodes actively orchestrating.',
         '› uv dependency sync: 48 packages resolved in 12ms (not weeks).',
         '› RAG retrieval: Sub-200ms query response SLA on GCP.',

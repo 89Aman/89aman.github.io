@@ -264,6 +264,87 @@ h1, h2, h3, h4, h5, h6 {
   animation: reveal 0.6s ease-out forwards;
 }
 
+/* Liquid Glass System */
+@keyframes liquid-flow {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.03) rotate(0.8deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes liquid-shimmer-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  40%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes liquid-refraction-orbit {
+  0% {
+    transform: rotate(0deg) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.06);
+    filter: hue-rotate(18deg);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    filter: hue-rotate(0deg);
+  }
+}
+
+.liquid-glass-glow {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 152, 163, 0.75) 0%,
+    rgba(56, 189, 248, 0.6) 25%,
+    rgba(109, 191, 143, 0.7) 50%,
+    rgba(45, 212, 191, 0.6) 75%,
+    rgba(79, 152, 163, 0.75) 100%
+  );
+  background-size: 250% 250%;
+  animation: liquid-flow 10s ease-in-out infinite;
+  filter: blur(28px);
+}
+
+.liquid-glass-refraction {
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(79, 152, 163, 0.35) 0%,
+    rgba(109, 191, 143, 0.25) 40%,
+    rgba(56, 189, 248, 0.15) 70%,
+    transparent 100%
+  );
+  animation: liquid-refraction-orbit 16s linear infinite;
+  filter: blur(16px);
+}
+
+.liquid-glass-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 80%
+  );
+  animation: liquid-shimmer-sweep 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

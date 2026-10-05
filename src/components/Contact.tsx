@@ -178,12 +178,19 @@ export function Contact() {
         {/* ULTRA-PREMIUM Book a Meeting Card */}
         <div className="text-center">
           <div className="relative inline-block w-full max-w-3xl mx-auto">
-            {/* Outer Animated Gradient Border Glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#4F98A3] via-[#6DBF8F] to-[#4F98A3] rounded-3xl opacity-30 blur-2xl animate-pulse"></div>
+            {/* Liquid Glass Dynamic Glow & Refractive Ambient Fluid */}
+            <div className="absolute -inset-2 rounded-[2rem] liquid-glass-glow opacity-60"></div>
+            <div className="absolute -inset-1 rounded-[1.8rem] liquid-glass-refraction opacity-50"></div>
 
-            {/* Premium Card Surface */}
-            <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-[#4F98A3]/40 via-[#2A2A35] to-[#1A1A24]">
-              <div className="relative p-8 sm:p-12 md:p-14 rounded-3xl bg-gradient-to-b from-[#181824]/95 via-[#13131A]/95 to-[#0D0D12]/98 backdrop-blur-2xl overflow-hidden shadow-2xl">
+            {/* Premium Liquid Glass Card Surface */}
+            <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-white/20 via-[#4F98A3]/40 to-[#1A1A24]/60 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+              <div className="relative p-8 sm:p-12 md:p-14 rounded-3xl bg-[#13131A]/75 backdrop-blur-2xl backdrop-saturate-150 overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.22),inset_0_-1px_1px_rgba(0,0,0,0.5)]">
+                {/* Liquid Glass Sweeping Light Sheen */}
+                <div className="liquid-glass-sheen"></div>
+
+                {/* Top specular liquid arc */}
+                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/[0.08] via-white/[0.02] to-transparent pointer-events-none rounded-t-3xl" />
+
                 {/* Radial ambient lighting inside card */}
                 <div
                   className="absolute inset-0 pointer-events-none opacity-40"

@@ -211,11 +211,7 @@ export function Hero() {
         <div className="flex flex-col items-center">
           {/* Top: Hero Copy */}
           <div className="w-full max-w-4xl space-y-6 text-center md:text-left mb-12 md:mb-16">
-            {/* Tag Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#1A1A24]/90 border border-[#2A2A35] text-[#4F98A3] text-xs font-mono backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-[#6DBF8F] animate-pulse"></span>
-              <span>&lt; Multi-Agent Systems · RAG Architecture · Cloud Infra /&gt;</span>
-            </div>
+
 
             {/* Main Name Heading */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-none font-display">

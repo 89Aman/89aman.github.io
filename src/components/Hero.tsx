@@ -245,7 +245,7 @@ export function Hero() {
                 href="https://linkedin.com/in/sharmaaman012"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 border border-[#2A2A35] text-[#797876] hover:text-white rounded-lg font-medium hover:bg-[#1A1A24] transition-all flex items-center gap-2"
+                className="px-5 py-3 border border-[#2A2A35] text-[#9E9D9A] hover:text-white rounded-lg font-medium hover:bg-[#1A1A24] transition-all flex items-center gap-2"
               >
                 <Download size={16} />
                 <span>Resume / Bio</span>
@@ -256,7 +256,7 @@ export function Hero() {
                   href="https://github.com/89Aman"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#9E9D9A] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
                   aria-label="GitHub"
                 >
                   <Github size={18} />
@@ -265,14 +265,14 @@ export function Hero() {
                   href="https://linkedin.com/in/sharmaaman012"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#9E9D9A] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={18} />
                 </a>
                 <a
                   href="mailto:shasarita23@gmail.com"
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1A1A24] border border-[#2A2A35] text-[#9E9D9A] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
                   aria-label="Email"
                 >
                   <Mail size={18} />
@@ -290,7 +290,7 @@ export function Hero() {
                   <span className="w-3 h-3 rounded-full bg-[#EF4444]/80"></span>
                   <span className="w-3 h-3 rounded-full bg-[#F59E0B]/80"></span>
                   <span className="w-3 h-3 rounded-full bg-[#10B981]/80"></span>
-                  <span className="text-xs font-mono text-[#797876] ml-2">aman@edge:~</span>
+                  <span className="text-xs font-mono text-[#9E9D9A] ml-2">aman@edge:~</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0D0D12] text-[#6DBF8F] border border-[#2A2A35]">
@@ -299,7 +299,8 @@ export function Hero() {
                   <button
                     onClick={() => handleCommand('clear')}
                     title="Clear terminal"
-                    className="text-[#797876] hover:text-white transition-colors"
+                    aria-label="Clear terminal output"
+                    className="text-[#9E9D9A] hover:text-white transition-colors"
                   >
                     <RotateCcw size={14} />
                   </button>
@@ -308,7 +309,7 @@ export function Hero() {
 
               {/* Quick Command Chips (Full width & clear) */}
               <div className="px-5 py-3 bg-[#0D0D12] border-b border-[#2A2A35] flex flex-wrap items-center gap-2 text-xs font-mono scrollbar-none no-scrollbar">
-                <span className="text-[#797876] shrink-0 mr-1 font-semibold">Quick run:</span>
+                <span className="text-[#9E9D9A] shrink-0 mr-1 font-semibold">Quick run:</span>
                 {QUICK_COMMANDS.map((cmd) => (
                   <button
                     key={cmd}
@@ -324,7 +325,7 @@ export function Hero() {
               <div ref={terminalBodyRef} className="p-5 font-mono text-xs md:text-sm max-h-80 overflow-y-auto space-y-3 bg-[#0D0D12]/60 scroll-smooth scrollbar-none no-scrollbar">
                 {terminalHistory.map((item, idx) => (
                   <div key={idx} className="space-y-1">
-                    <div className="flex items-center gap-2 text-[#797876]">
+                    <div className="flex items-center gap-2 text-[#9E9D9A]">
                       <span className="text-[#6DBF8F]">{item.prompt}</span>
                       <span className="text-white font-medium">{item.command}</span>
                     </div>
@@ -358,15 +359,19 @@ export function Hero() {
               >
                 <span className="text-[#6DBF8F] font-mono text-xs">$</span>
                 <input
+                  id="terminal-command-input"
+                  name="terminal-command"
+                  aria-label="Terminal command line input"
                   type="text"
+                  autoComplete="off"
                   value={terminalInput}
                   onChange={(e) => setTerminalInput(e.target.value)}
-                  placeholder="type command (e.g. 'help', 'roast', 'aman --architecture')..."
-                  className="flex-1 bg-transparent text-white font-mono text-xs focus:outline-none placeholder-[#797876]"
+                  placeholder="type command (e.g. 'help', 'aman --architecture', 'projects')..."
+                  className="flex-1 bg-transparent text-white font-mono text-xs focus:outline-none placeholder-[#9E9D9A]"
                 />
                 <button
                   type="submit"
-                  className="text-[#797876] hover:text-[#4F98A3] transition-colors"
+                  className="text-[#9E9D9A] hover:text-[#4F98A3] transition-colors"
                   aria-label="Send command"
                 >
                   <Send size={15} />

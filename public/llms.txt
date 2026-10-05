@@ -1,0 +1,21 @@
+# Aman Sharma — Portfolio & AI Systems Architecture
+> AI Systems and Backend Engineer based in Raipur, India. Specializing in autonomous multi-agent architectures, production-grade RAG pipelines, and high-concurrency backend microservices.
+
+## Summary
+- Name: Aman Sharma
+- Role: AI Systems & Backend Architect
+- Focus: Autonomous Multi-Agents, Production RAG, FastAPI, Python 3.12 (uv), Cloud Infrastructure (GCP & AWS)
+- Location: Raipur, Chhattisgarh, India
+- Website: https://amanworks.runs-on.dev
+- GitHub: https://github.com/89Aman
+- LinkedIn: https://linkedin.com/in/sharmaaman012
+- Email: shasarita23@gmail.com
+- Calendar: https://cal.com/aman-sharma-a0i0rd
+
+## Key Projects
+- AgentTrustLedger: Neutral escrow-and-reputation protocol and verification layer for autonomous agent-to-agent transactions. (https://github.com/89Aman/AgentTrustLedger)
+- ContextLens: AI-driven developer companion capturing coding intent, tracking development episodes, and generating project telemetry. (https://github.com/89Aman/Contextlens)
+- TalentLens: Intelligent candidate evaluation and ranking system replacing keyword filtering with comparative LLM reasoning. (https://github.com/89Aman/Talentlens)
+- Parivesh 3.0: Environmental Clearance workflow engine with React + FastAPI, Supabase PostgreSQL, and AI-generated MoM briefs. (https://github.com/89Aman/Parivesh-3.0)
+- Knowledge Vault: Production semantic search engine with RAG pipeline. Dense 384-dim embeddings + hybrid scoring. (https://github.com/89Aman/Knowledge-vault)
+- CampusFix: Smart campus facility management platform built for GDG Solution Challenge. 500+ QPS FastAPI backend. (https://github.com/89Aman/CampusFix)

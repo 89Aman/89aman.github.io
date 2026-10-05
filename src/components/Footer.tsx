@@ -95,7 +95,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[#797876]">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[#9E9D9A]">
           <div className="flex items-center gap-2">
             <span>© {currentYear} Aman Sharma.</span>
             <span className="text-[#2A2A35]">·</span>

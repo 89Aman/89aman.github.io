@@ -56,7 +56,7 @@ export function Contact() {
             <span>Direct Channels</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">Let's Build Together</h2>
-          <p className="text-[#797876] max-w-xl mx-auto text-base">
+          <p className="text-[#9E9D9A] max-w-xl mx-auto text-base">
             Whether you want to collaborate on multi-agent workflows, need a Python/FastAPI engineer for high-concurrency systems, or want to discuss opportunities.
           </p>
         </div>
@@ -87,7 +87,7 @@ export function Contact() {
                       <IconComponent size={20} style={{ color: method.color }} />
                     </div>
                     <div>
-                      <span className="block text-xs text-[#797876] uppercase tracking-wider font-mono">
+                      <span className="block text-xs text-[#9E9D9A] uppercase tracking-wider font-mono">
                         {method.label}
                       </span>
                       <span className="text-sm font-medium text-[#CDCCCA] group-hover:text-[#4F98A3] transition-colors">
@@ -119,7 +119,7 @@ export function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="contact-name" className="block text-xs font-mono text-[#797876] uppercase mb-2">
+                  <label htmlFor="contact-name" className="block text-xs font-mono text-[#9E9D9A] uppercase mb-2">
                     Your Name
                   </label>
                   <input
@@ -127,14 +127,15 @@ export function Contact() {
                     name="name"
                     type="text"
                     required
+                    autoComplete="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-[#CDCCCA] placeholder-[#797876] focus:border-[#4F98A3] focus:outline-none transition-colors text-sm font-mono"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-[#CDCCCA] placeholder-[#9E9D9A] focus:border-[#4F98A3] focus:outline-none transition-colors text-sm font-mono"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="block text-xs font-mono text-[#797876] uppercase mb-2">
+                  <label htmlFor="contact-email" className="block text-xs font-mono text-[#9E9D9A] uppercase mb-2">
                     Your Email
                   </label>
                   <input
@@ -142,14 +143,15 @@ export function Contact() {
                     name="email"
                     type="email"
                     required
+                    autoComplete="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="jane@company.com"
-                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-[#CDCCCA] placeholder-[#797876] focus:border-[#4F98A3] focus:outline-none transition-colors text-sm font-mono"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-[#CDCCCA] placeholder-[#9E9D9A] focus:border-[#4F98A3] focus:outline-none transition-colors text-sm font-mono"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-message" className="block text-xs font-mono text-[#797876] uppercase mb-2">
+                  <label htmlFor="contact-message" className="block text-xs font-mono text-[#9E9D9A] uppercase mb-2">
                     Message
                   </label>
                   <textarea
@@ -160,7 +162,7 @@ export function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Let's discuss autonomous agent architecture or backend systems..."
-                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-[#CDCCCA] placeholder-[#797876] focus:border-[#4F98A3] focus:outline-none transition-colors text-sm font-mono resize-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0D0D12] border border-[#2A2A35] text-[#CDCCCA] placeholder-[#9E9D9A] focus:border-[#4F98A3] focus:outline-none transition-colors text-sm font-mono resize-none"
                   />
                 </div>
                 <button
@@ -244,7 +246,7 @@ export function Contact() {
                 </div>
 
                 {/* Feature Value Props */}
-                <div className="relative mt-8 pt-6 border-t border-[#2A2A35]/60 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-mono text-[#797876]">
+                <div className="relative mt-8 pt-6 border-t border-[#2A2A35]/60 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-mono text-[#9E9D9A]">
                   <span className="flex items-center gap-1.5">
                     <Zap size={14} className="text-[#6DBF8F]" />
                     <span>Instant Confirmation</span>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amanworks.runs-on.dev/sitemap.xml

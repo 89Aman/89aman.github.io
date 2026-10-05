@@ -48,7 +48,7 @@ export function About() {
             <span>Engineering Philosophy</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">About Me</h2>
-          <p className="text-[#797876] max-w-2xl mx-auto text-base">
+          <p className="text-[#9E9D9A] max-w-2xl mx-auto text-base">
             Building intelligent, production-ready AI infrastructure and high-throughput backends.
           </p>
         </div>
@@ -62,7 +62,9 @@ export function About() {
               <div className="relative p-2 bg-[#1A1A24] rounded-2xl border border-[#2A2A35]">
                 <img
                   src="https://avatars.githubusercontent.com/u/94701256?v=4"
-                  alt="Aman Sharma"
+                  alt="Aman Sharma - AI Systems and Backend Engineer"
+                  width={288}
+                  height={288}
                   className="w-64 h-64 md:w-72 md:h-72 rounded-xl object-cover"
                   loading="eager"
                 />
@@ -99,7 +101,7 @@ export function About() {
                   >
                     <IconComponent size={18} className="mx-auto mb-1.5 text-[#4F98A3]" />
                     <span className="block text-2xl font-bold text-white font-mono">{stat.value}</span>
-                    <span className="text-[11px] text-[#797876] block leading-tight">{stat.label}</span>
+                    <span className="text-[11px] text-[#9E9D9A] block leading-tight">{stat.label}</span>
                   </div>
                 );
               })}
@@ -132,7 +134,7 @@ export function About() {
                   <IconComp size={20} />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{pillar.title}</h3>
-                <p className="text-xs text-[#797876] leading-relaxed">{pillar.description}</p>
+                <p className="text-xs text-[#9E9D9A] leading-relaxed">{pillar.description}</p>
               </div>
             );
           })}

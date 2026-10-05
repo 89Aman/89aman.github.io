@@ -119,7 +119,7 @@ export function Projects() {
               <span>Production Systems &amp; Repositories</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white font-display">Featured Projects</h2>
-            <p className="text-[#797876] mt-2 max-w-xl text-sm">
+            <p className="text-[#9E9D9A] mt-2 max-w-xl text-sm">
               Production systems and open-source repositories spanning multi-agent protocols, semantic RAG search, and high-concurrency microservices.
             </p>
           </div>
@@ -130,6 +130,7 @@ export function Projects() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
+                aria-pressed={activeFilter === filter}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all ${
                   activeFilter === filter
                     ? 'bg-[#4F98A3] text-[#0D0D12] font-semibold shadow-md shadow-[#4F98A3]/20'
@@ -158,7 +159,7 @@ export function Projects() {
                         <Sparkles size={11} /> Featured
                       </span>
                     )}
-                    <span className="text-[11px] text-[#797876] font-mono">
+                    <span className="text-[11px] text-[#9E9D9A] font-mono">
                       {project.category[0]}
                     </span>
                   </div>
@@ -169,7 +170,7 @@ export function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-md bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#797876] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
+                        className="w-8 h-8 rounded-md bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#9E9D9A] hover:text-[#4F98A3] hover:border-[#4F98A3] transition-all"
                         aria-label="GitHub Repository"
                       >
                         <Github size={15} />
@@ -180,7 +181,7 @@ export function Projects() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-md bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#797876] hover:text-[#6DBF8F] hover:border-[#6DBF8F] transition-all"
+                        className="w-8 h-8 rounded-md bg-[#1A1A24] border border-[#2A2A35] flex items-center justify-center text-[#9E9D9A] hover:text-[#6DBF8F] hover:border-[#6DBF8F] transition-all"
                         aria-label="Live Demo"
                       >
                         <ExternalLink size={15} />
@@ -198,7 +199,7 @@ export function Projects() {
                 </p>
 
                 {/* Highlights List */}
-                <ul className="space-y-1.5 mb-6 text-xs text-[#797876]">
+                <ul className="space-y-1.5 mb-6 text-xs text-[#9E9D9A]">
                   {project.fullDescription.slice(0, 2).map((item, idx) => (
                     <li key={idx} className="flex items-start gap-1.5">
                       <span className="text-[#4F98A3] font-bold">›</span>

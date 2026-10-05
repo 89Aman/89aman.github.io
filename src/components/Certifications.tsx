@@ -59,7 +59,7 @@ export function Certifications() {
             <span>Verified Credentials</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 font-display">Certifications</h2>
-          <p className="text-[#797876] max-w-xl mx-auto text-sm">
+          <p className="text-[#9E9D9A] max-w-xl mx-auto text-sm">
             Formal technical certifications across Generative AI, cloud infrastructure, vector databases, and API architecture.
           </p>
         </div>
@@ -80,7 +80,7 @@ export function Certifications() {
                     >
                       <Award size={14} />
                     </div>
-                    <span className="text-xs text-[#797876] font-mono flex items-center gap-1 truncate">
+                    <span className="text-xs text-[#9E9D9A] font-mono flex items-center gap-1 truncate">
                       <CheckCircle size={11} className="text-[#6DBF8F] shrink-0" />
                       <span className="truncate">{cert.issuer}</span>
                     </span>
@@ -96,7 +96,7 @@ export function Certifications() {
               </div>
 
               <div className="pt-3 mt-2 border-t border-[#1F1F2C]/60 flex items-center justify-between">
-                <span className="text-[11px] text-[#797876] font-mono">Credential ID</span>
+                <span className="text-[11px] text-[#9E9D9A] font-mono">Credential ID</span>
                 <a
                   href={cert.credentialUrl}
                   target="_blank"
